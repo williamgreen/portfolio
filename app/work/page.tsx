@@ -26,7 +26,7 @@ export default async function WorkPage() {
         </div>
 
         {/* Work Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 flex-grow">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12 flex-grow">
           {workItems.length > 0 ? (
             workItems.map((item, index) => (
               <Link key={index} href={`/work/${item.slug}`} className="block">

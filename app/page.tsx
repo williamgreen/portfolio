@@ -223,11 +223,11 @@ export default async function HomePage() {
                               <h4 className="font-semibold text-sm mb-1">{item.company}</h4>
                               <p className="text-xs text-muted-foreground mb-1">{item.subtitle}</p>
                               <span className="text-xs text-muted-foreground">{item.year}</span>
-                            </div>
+                                                        </div>
                           </div>
 
-                          {/* New label for first item */}
-                          {index === 0 && (
+                          {/* New label for featured items */}
+                          {item.featured && (
                             <div className="absolute bottom-4 left-4 z-20">
                               <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-medium">
                                 New
@@ -238,7 +238,7 @@ export default async function HomePage() {
                       </Link>
                     )
                   })
-              : // Fallback to simple grid if no Contentful data
+               : // Fallback to simple grid if no Contentful data
                 [
                   { company: "Ravelin", period: "2021 - Present", slug: "ravelin" },
                   { company: "GetGround", period: "2021", slug: "getground" },
@@ -293,14 +293,7 @@ export default async function HomePage() {
                             </div>
                           </div>
 
-                          {/* New label for first item */}
-                          {index === 0 && (
-                            <div className="absolute bottom-4 left-4 z-20">
-                              <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-medium">
-                                New
-                              </span>
-                            </div>
-                          )}
+
                         </div>
                       </Link>
                     )
