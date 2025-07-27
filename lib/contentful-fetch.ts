@@ -1,5 +1,9 @@
-const SPACE_ID = "o8o8l5s5m01e"
-const ACCESS_TOKEN = "HXsw-bkae2KyfOsnh4XA14nMzqlDO2Wx4xp24cfsEdM"
+const SPACE_ID = process.env.CONTENTFUL_SPACE_ID
+const ACCESS_TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN
+
+if (!SPACE_ID || !ACCESS_TOKEN) {
+  throw new Error('Missing Contentful environment variables. Please check your .env.local file.')
+}
 
 export interface WorkItem {
   title: string
