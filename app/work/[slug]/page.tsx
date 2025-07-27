@@ -127,8 +127,8 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
                     {/* Content - positioned at top left */}
                     <div className="relative z-10 p-4 h-full flex flex-col">
                       <div className="text-foreground">
-                        <h4 className="font-semibold text-sm mb-1">{item.company}</h4>
-                        <p className="text-xs text-muted-foreground mb-1">{item.subtitle}</p>
+                        <h4 className="font-medium mb-1">{item.company}</h4>
+                        <p className="text-sm text-muted-foreground mb-1">{item.subtitle}</p>
                         <span className="text-xs text-muted-foreground">{item.year}</span>
                       </div>
                     </div>

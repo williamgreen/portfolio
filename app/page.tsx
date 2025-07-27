@@ -104,16 +104,16 @@ export default async function HomePage() {
         </div>
 
         {/* Elsewhere Section */}
-        <section className="mb-12">
-          <h3 className="font-semibold mb-4">Elsewhere</h3>
-          <div className="flex flex-wrap gap-4 text-sm">
+        <section className="mb-16">
+          <h3 className="font-semibold text-xl mb-4">Elsewhere</h3>
+          <div className="flex flex-wrap gap-4">
             <Link
               href="https://www.linkedin.com/in/williamanthonygreen/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-                             LinkedIn <ArrowUpRight className="w-3 h-3 inline" />
+                             LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
             </Link>
             <Link
               href="https://www.instagram.com/willgpd/"
@@ -121,7 +121,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-                             Instagram <ArrowUpRight className="w-3 h-3 inline" />
+                             Instagram <ArrowUpRight className="w-4 h-4 inline" />
             </Link>
             <Link
               href="https://dribbble.com/willgreen"
@@ -129,7 +129,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-                             Dribbble <ArrowUpRight className="w-3 h-3 inline" />
+                             Dribbble <ArrowUpRight className="w-4 h-4 inline" />
             </Link>
             <Link
               href="https://bsky.app/profile/willg.design"
@@ -137,7 +137,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-                             Bluesky <ArrowUpRight className="w-3 h-3 inline" />
+                             Bluesky <ArrowUpRight className="w-4 h-4 inline" />
             </Link>
             <Link
               href="https://github.com/williamgreen"
@@ -145,7 +145,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-                             GitHub <ArrowUpRight className="w-3 h-3 inline" />
+                             GitHub <ArrowUpRight className="w-4 h-4 inline" />
             </Link>
             <Link
               href="https://www.youtube.com/channel/UCzduj27Ag0yKe6OZxqse2Ng"
@@ -153,17 +153,17 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-                             YouTube <ArrowUpRight className="w-3 h-3 inline" />
+                             YouTube <ArrowUpRight className="w-4 h-4 inline" />
             </Link>
           </div>
         </section>
 
         {/* Work Section */}
-        <section className="mb-12">
+        <section className="mb-16">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="font-semibold">Work</h3>
-            <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1">
-              All <ArrowRight className="w-3 h-3 inline" />
+            <h3 className="font-semibold text-xl">Work</h3>
+            <Link href="/work" className="text-muted-foreground hover:text-foreground flex items-center gap-1">
+              All <ArrowRight className="w-4 h-4 inline" />
             </Link>
           </div>
 
@@ -220,8 +220,8 @@ export default async function HomePage() {
                           {/* Content - positioned at top left */}
                           <div className="relative z-10 p-4 h-full flex flex-col">
                             <div className="text-foreground">
-                              <h4 className="font-semibold text-sm mb-1">{item.company}</h4>
-                              <p className="text-xs text-muted-foreground mb-1">{item.subtitle}</p>
+                              <h4 className="font-medium mb-1">{item.company}</h4>
+                              <p className="text-sm text-muted-foreground mb-1">{item.subtitle}</p>
                               <span className="text-xs text-muted-foreground">{item.year}</span>
                                                         </div>
                           </div>
@@ -288,7 +288,7 @@ export default async function HomePage() {
                           {/* Content - positioned at top left */}
                           <div className="relative z-10 p-4 h-full flex flex-col">
                             <div className="text-foreground">
-                              <h4 className="font-semibold text-sm mb-1">{item.company}</h4>
+                              <h4 className="font-medium mb-1">{item.company}</h4>
                               <span className="text-xs text-muted-foreground">{item.period}</span>
                             </div>
                           </div>
@@ -318,14 +318,14 @@ export default async function HomePage() {
         </section>
 
         {/* Downloads Section */}
-        <section className="mb-12">
+        <section className="mb-16">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="font-semibold">Downloads</h3>
+            <h3 className="font-semibold text-xl">Downloads</h3>
             <Link
               href="/downloads"
-              className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              All <ArrowRight className="w-3 h-3 inline" />
+              All <ArrowRight className="w-4 h-4 inline" />
             </Link>
           </div>
 
@@ -400,9 +400,9 @@ export default async function HomePage() {
           </Link>
         </section>
 
-        {/* Side-project graveyard Section */}
-        <section className="mb-12">
-          <h3 className="font-semibold mb-6">Side-project graveyard</h3>
+        {/* Side-Project Graveyard Section */}
+        <section className="mb-16">
+          <h3 className="font-semibold text-xl mb-6">Side-Project Graveyard</h3>
 
           <div className="space-y-2">
             {[
