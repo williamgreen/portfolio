@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   title: 'Will Green - Product Designer',
@@ -32,15 +33,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#a3e635" />
       </head>
       <body className="font-inter">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+                 <ThemeProvider
+           attribute="class"
+           defaultTheme="light"
+           enableSystem={false}
+           disableTransitionOnChange
+         >
+           {children}
+         </ThemeProvider>
+         <Analytics />
+       </body>
     </html>
   )
 }
