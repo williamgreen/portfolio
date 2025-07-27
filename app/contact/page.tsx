@@ -1,11 +1,16 @@
 import Link from "next/link"
 import { Calendar, Clock } from "lucide-react"
+import { Metadata } from "next"
 import BottomNavigation from "@/components/bottom-navigation"
 import Breadcrumb from "@/components/breadcrumb"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+
+export const metadata: Metadata = {
+  title: 'Contact',
+}
 
 export default function ContactPage() {
   return (

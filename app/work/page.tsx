@@ -1,9 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Metadata } from "next"
 import BottomNavigation from "@/components/bottom-navigation"
 import Breadcrumb from "@/components/breadcrumb"
 import Footer from "@/components/footer"
 import { getWorkItems } from "@/lib/contentful"
+
+export const metadata: Metadata = {
+  title: 'Work',
+}
 
 export default async function WorkPage() {
   const workItems = await getWorkItems()

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
+import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import BottomNavigation from "@/components/bottom-navigation"
 import Breadcrumb from "@/components/breadcrumb"
@@ -14,6 +15,21 @@ export async function generateStaticParams() {
   return workItems.map((item) => ({
     slug: item.slug,
   }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const workItem = await getWorkItem(slug)
+  
+  if (!workItem) {
+    return {
+      title: 'Work',
+    }
+  }
+
+  return {
+    title: workItem.company,
+  }
 }
 
 export default async function WorkItemPage({ params }: { params: Promise<{ slug: string }> }) {

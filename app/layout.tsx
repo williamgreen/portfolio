@@ -4,7 +4,10 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
-  title: 'Will Green - Product Designer',
+  title: {
+    template: 'Will Green - %s',
+    default: 'Will Green - Product Designer',
+  },
   description: 'Product Designer based in Bristol, UK. Currently at Ravelin building fraud prevention software.',
   generator: 'Next.js',
   icons: {

@@ -1,9 +1,14 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { Metadata } from "next"
 import BottomNavigation from "@/components/bottom-navigation"
 import Breadcrumb from "@/components/breadcrumb"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
+
+export const metadata: Metadata = {
+  title: 'Colophon',
+}
 
 export default function ColophonPage() {
   return (
