@@ -65,7 +65,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
         {work.websiteLink && (
           <Link href={work.websiteLink} target="_blank" rel="noopener noreferrer">
             <Button variant="outline" className="mb-8 bg-transparent">
-              View Live
+              Website
               <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
             </Button>
           </Link>
