@@ -166,7 +166,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mb-6">
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
             {workItems.length > 0
               ? // Show Contentful data in bento grid
                 workItems
