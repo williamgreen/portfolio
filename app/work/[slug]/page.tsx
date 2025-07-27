@@ -73,7 +73,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
 
         {/* Cover Image */}
         {work.coverImage && (
-          <div className="mb-8 rounded-lg overflow-hidden">
+          <div className="mb-8 rounded-lg overflow-hidden bg-gray-50">
             <Image
               src={`https:${work.coverImage.fields.file.url}`}
               alt={work.coverImage.fields.title || work.title}

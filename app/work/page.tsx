@@ -31,7 +31,7 @@ export default async function WorkPage() {
               <Link key={index} href={`/work/${item.slug}`}>
                 <div className="group cursor-pointer">
                   {/* Image Container */}
-                  <div className="relative overflow-hidden rounded-lg bg-muted mb-4 aspect-[4/3]">
+                  <div className="relative overflow-hidden rounded-lg bg-gray-50 mb-4 aspect-square">
                     {item.coverImage ? (
                       <Image
                         src={`https:${item.coverImage.fields.file.url}`}
@@ -40,7 +40,7 @@ export default async function WorkPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
-                      <div className="w-full h-full bg-muted flex items-center justify-center">
+                      <div className="w-full h-full bg-gray-50 flex items-center justify-center">
                         <span className="text-muted-foreground">No image</span>
                       </div>
                     )}

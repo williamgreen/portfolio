@@ -207,7 +207,7 @@ export default async function HomePage() {
 
                           {/* Background Image - positioned at bottom right */}
                           {item.coverImage && (
-                            <div className="absolute bottom-0 right-0 w-2/3 h-2/3">
+                            <div className="absolute bottom-0 right-0 w-4/5 h-4/5">
                               <Image
                                 src={`https:${item.coverImage.fields.file.url}`}
                                 alt={item.coverImage.fields.title || item.title}
