@@ -53,7 +53,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Details Grid */}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-6 text-sm">
+        <div className="grid gap-x-6 gap-y-4 mb-6 text-sm" style={{gridTemplateColumns: 'auto 1fr'}}>
           <div className="text-muted-foreground">Company</div>
           <div className="text-foreground">{work.company}</div>
 
