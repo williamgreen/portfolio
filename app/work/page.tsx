@@ -16,7 +16,7 @@ export default async function WorkPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pb-24">
-      <div className="max-w-2xl mx-auto px-6 py-12 min-h-[calc(100vh-1rem)] flex flex-col">
+      <div className="max-w-2xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Work" }]} />
 
@@ -26,7 +26,7 @@ export default async function WorkPage() {
         </div>
 
         {/* Work Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12 flex-grow">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
           {workItems.length > 0 ? (
             workItems.map((item, index) => (
               <Link key={index} href={`/work/${item.slug}`} className="block">
@@ -70,9 +70,7 @@ export default async function WorkPage() {
         </div>
 
         {/* Footer */}
-        <div className="mt-auto">
-          <Footer />
-        </div>
+        <Footer />
       </div>
 
       <BottomNavigation />
