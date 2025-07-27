@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, Download, Mail, ShoppingBag, ArrowUpRight } from "lucide-react"
+import { Calendar, Download, Mail, ShoppingBag, ArrowUpRight, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import AnimatedText from "@/components/animated-text"
 import BottomNavigation from "@/components/bottom-navigation"
@@ -163,7 +163,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-semibold">Work</h3>
             <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1">
-              All <ArrowUpRight className="w-3 h-3 inline" />
+              All <ArrowRight className="w-3 h-3 inline" />
             </Link>
           </div>
 
@@ -201,7 +201,7 @@ export default async function HomePage() {
                           {/* Arrow Icon */}
                           <div className="absolute top-4 right-4 z-20">
                             <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-                              <ArrowUpRight className="w-3 h-3 text-foreground" />
+                              <ArrowRight className="w-3 h-3 text-foreground" />
                             </div>
                           </div>
 
@@ -281,7 +281,7 @@ export default async function HomePage() {
                           {/* Arrow Icon */}
                           <div className="absolute top-4 right-4 z-20">
                             <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-                              <ArrowUpRight className="w-3 h-3 text-foreground" />
+                              <ArrowRight className="w-3 h-3 text-foreground" />
                             </div>
                           </div>
 
@@ -332,7 +332,7 @@ export default async function HomePage() {
               href="/downloads"
               className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              All <ArrowUpRight className="w-3 h-3 inline" />
+              All <ArrowRight className="w-3 h-3 inline" />
             </Link>
           </div>
 
@@ -342,7 +342,7 @@ export default async function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="flex items-center gap-4 p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
+              <div className="flex items-center gap-4 p-4 rounded-lg border shadow-sm hover:shadow-md hover:bg-muted/50 transition-all duration-300 cursor-pointer">
                 <div className="w-10 h-10 rounded-full overflow-hidden">
                   <Image
                     src="/garmin-icons.png"
@@ -370,7 +370,7 @@ export default async function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="flex items-center gap-4 p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
+              <div className="flex items-center gap-4 p-4 rounded-lg border shadow-sm hover:shadow-md hover:bg-muted/50 transition-all duration-300 cursor-pointer">
                 <div className="w-10 h-10 rounded-full overflow-hidden">
                   <Image
                     src="/fotmob-icons.png"
