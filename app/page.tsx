@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, Download, ExternalLink, Mail, ShoppingBag, ArrowUpRight } from "lucide-react"
+import { Calendar, Download, Mail, ShoppingBag, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import AnimatedText from "@/components/animated-text"
 import BottomNavigation from "@/components/bottom-navigation"
@@ -98,6 +98,7 @@ export default async function HomePage() {
             <Button variant="outline">
               <Calendar className="w-4 h-4 mr-2" />
               Book a call
+              <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
             </Button>
           </Link>
         </div>
@@ -112,7 +113,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              LinkedIn <ExternalLink className="w-3 h-3" />
+                             LinkedIn <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
             <Link
               href="https://www.instagram.com/willgpd/"
@@ -120,7 +121,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              Instagram <ExternalLink className="w-3 h-3" />
+                             Instagram <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
             <Link
               href="https://dribbble.com/willgreen"
@@ -128,7 +129,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              Dribbble <ExternalLink className="w-3 h-3" />
+                             Dribbble <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
             <Link
               href="https://bsky.app/profile/willg.design"
@@ -136,7 +137,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              Bluesky <ExternalLink className="w-3 h-3" />
+                             Bluesky <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
             <Link
               href="https://github.com/williamgreen"
@@ -144,7 +145,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              GitHub <ExternalLink className="w-3 h-3" />
+                             GitHub <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
             <Link
               href="https://www.youtube.com/channel/UCzduj27Ag0yKe6OZxqse2Ng"
@@ -152,7 +153,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              YouTube <ExternalLink className="w-3 h-3" />
+                             YouTube <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
           </div>
         </section>
@@ -162,7 +163,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-semibold">Work</h3>
             <Link href="/work" className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1">
-              All <ExternalLink className="w-3 h-3" />
+              All <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
           </div>
 
@@ -318,6 +319,7 @@ export default async function HomePage() {
                 </g>
               </svg>
               Read my CV
+              <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
             </Button>
           </Link>
         </section>
@@ -330,7 +332,7 @@ export default async function HomePage() {
               href="/downloads"
               className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1"
             >
-              All <ExternalLink className="w-3 h-3" />
+              All <ArrowUpRight className="w-3 h-3 inline" />
             </Link>
           </div>
 
@@ -353,7 +355,7 @@ export default async function HomePage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <h4 className="font-medium">Garmin Icons</h4>
-                    <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                    <ArrowUpRight className="w-3 h-3 text-muted-foreground inline" />
                   </div>
                   <p className="text-sm text-muted-foreground">Alternative icons for the Garmin Connect app.</p>
                 </div>
@@ -381,7 +383,7 @@ export default async function HomePage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <h4 className="font-medium">FotMob Icons</h4>
-                    <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                    <ArrowUpRight className="w-3 h-3 text-muted-foreground inline" />
                   </div>
                   <p className="text-sm text-muted-foreground">Alternative icons for the FotMob app.</p>
                 </div>
@@ -396,10 +398,11 @@ export default async function HomePage() {
             <Button variant="outline" className="mt-6 bg-transparent">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 25 216 190" className="w-4 h-4 mr-2 text-current" focusable="false">
                 <g>
-                  <path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96v16a40,40,0,0,0,16,32v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V144a40,40,0,0,0,16-32ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-48,0v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm-8-72a24,24,0,0,1-24-24v-8h48v8A24,24,0,0,1,192,136Z" fill="currentColor"></path>
+                  <path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96v16a40,40,0,0,0,16,32v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V144a40,40,0,0,0,16-32ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-48,0v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8,.8Zm-8-72a24,24,0,0,1-24-24v-8h48v8A24,24,0,0,1,192,136Z" fill="currentColor"></path>
                 </g>
               </svg>
               Web store
+              <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
             </Button>
           </Link>
         </section>
@@ -418,7 +421,7 @@ export default async function HomePage() {
                 <div className="flex justify-between items-center py-1 hover:bg-muted/50 transition-colors rounded px-2 -mx-2">
                   <div className="flex items-center gap-1">
                     <span className="text-foreground">{item.project}</span>
-                    <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                    <ArrowUpRight className="w-3 h-3 text-muted-foreground inline" />
                   </div>
                   <div className="flex-1 mx-4 border-b border-dotted border-muted-foreground/30"></div>
                   <span className="text-sm text-muted-foreground">{item.period}</span>

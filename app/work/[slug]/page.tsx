@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import BottomNavigation from "@/components/bottom-navigation"
@@ -65,8 +65,8 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
         {work.websiteLink && (
           <Link href={work.websiteLink} target="_blank" rel="noopener noreferrer">
             <Button variant="outline" className="mb-8 bg-transparent">
-              Website
-              <ExternalLink className="w-4 h-4 ml-2" />
+              View Live
+              <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
             </Button>
           </Link>
         )}

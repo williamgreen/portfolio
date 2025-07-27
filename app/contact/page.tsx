@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Calendar, Clock } from "lucide-react"
+import { Calendar, Clock, ArrowUpRight } from "lucide-react"
 import { Metadata } from "next"
 import BottomNavigation from "@/components/bottom-navigation"
 import Breadcrumb from "@/components/breadcrumb"
@@ -36,6 +36,7 @@ export default function ContactPage() {
             <Button variant="outline">
               <Calendar className="w-4 h-4 mr-2" />
               Book a call
+              <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
             </Button>
           </Link>
         </div>

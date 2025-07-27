@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ExternalLink } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Metadata } from "next"
 import BottomNavigation from "@/components/bottom-navigation"
 import Breadcrumb from "@/components/breadcrumb"
@@ -39,7 +39,7 @@ export default function DownloadsPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-2">
                   <h4 className="font-medium">Garmin Icons</h4>
-                  <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                  <ArrowUpRight className="w-3 h-3 text-muted-foreground inline" />
                 </div>
                 <p className="text-sm text-muted-foreground">Alternative icons for the Garmin Connect app.</p>
               </div>
@@ -67,7 +67,7 @@ export default function DownloadsPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-2">
                   <h4 className="font-medium">FotMob Icons</h4>
-                  <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                  <ArrowUpRight className="w-3 h-3 text-muted-foreground inline" />
                 </div>
                 <p className="text-sm text-muted-foreground">Alternative icons for the FotMob mobile app.</p>
               </div>
@@ -95,7 +95,7 @@ export default function DownloadsPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-2">
                   <h4 className="font-medium">Voyager Icons</h4>
-                  <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                  <ArrowUpRight className="w-3 h-3 text-muted-foreground inline" />
                 </div>
                 <p className="text-sm text-muted-foreground">Alternative icons for the Lemmy client, Voyager.</p>
               </div>
@@ -115,6 +115,7 @@ export default function DownloadsPage() {
               </g>
             </svg>
             Web store
+            <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
           </Button>
         </Link>
 
