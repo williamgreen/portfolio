@@ -167,138 +167,174 @@ export default async function HomePage() {
             </Link>
           </div>
 
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-            {workItems.length > 0
-              ? // Show Contentful data in bento grid
-                workItems
-                  .slice(0, 4)
-                  .map((item, index) => {
-                    // Define different sizes for bento layout with all cards square
-                    const getBentoClass = (index: number, totalItems: number) => {
-                      // Special case for single item - make it square but wider
-                      if (totalItems === 1) {
-                        return "col-span-2 aspect-square" // Full width but square
-                      }
+          {(() => {
+            // Demo work items to supplement CMS data
+            const demoWorkItems = [
+              {
+                company: "Spotify",
+                subtitle: "Music streaming redesign",
+                year: "2024",
+                slug: "spotify-redesign",
+                featured: true,
+                mockImage: "/api/placeholder/400/300",
+                color: "bg-green-100",
+                textColor: "text-green-900"
+              },
+              {
+                company: "Airbnb",
+                subtitle: "Host dashboard optimization",
+                year: "2023", 
+                slug: "airbnb-host",
+                featured: false,
+                mockImage: "/api/placeholder/300/400",
+                color: "bg-red-100",
+                textColor: "text-red-900"
+              },
+              {
+                company: "Netflix",
+                subtitle: "Content discovery AI",
+                year: "2023",
+                slug: "netflix-discovery",
+                featured: false,
+                mockImage: "/api/placeholder/350/200",
+                color: "bg-red-500",
+                textColor: "text-white"
+              },
+              {
+                company: "Stripe",
+                subtitle: "Payment flow redesign",
+                year: "2022",
+                slug: "stripe-payments",
+                featured: false,
+                mockImage: "/api/placeholder/300/300",
+                color: "bg-indigo-100",
+                textColor: "text-indigo-900"
+              },
+              {
+                company: "Figma",
+                subtitle: "Collaborative design tools",
+                year: "2022",
+                slug: "figma-collab",
+                featured: false,
+                mockImage: "/api/placeholder/400/250",
+                color: "bg-purple-100", 
+                textColor: "text-purple-900"
+              },
+              {
+                company: "Notion",
+                subtitle: "Workspace productivity suite",
+                year: "2021",
+                slug: "notion-workspace",
+                featured: false,
+                mockImage: "/api/placeholder/320/280",
+                color: "bg-gray-100",
+                textColor: "text-gray-900"
+              }
+            ];
 
-                      // Check if this is the last item and the total count is odd (meaning it's alone in its row)
-                      const isLastItemAlone = index === totalItems - 1 && totalItems % 2 === 1
+            // Combine CMS data with demo data, prioritizing CMS data
+            const allWorkItems = [...workItems, ...demoWorkItems].slice(0, 6);
 
-                      if (isLastItemAlone) {
-                        return "col-span-2 aspect-square" // Full width and square
-                      }
-
-                      // All cards are now square
-                      return "col-span-1 row-span-1 aspect-square"
+            return (
+              <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-6 md:grid-rows-3 gap-3 mb-6 h-[800px] md:h-[600px]">
+                {allWorkItems.map((item, index) => {
+                  // Bento grid layout patterns - responsive
+                  const getBentoClass = (index: number) => {
+                    switch (index) {
+                      case 0: // Large featured card
+                        return "col-span-2 row-span-2"; // Same on mobile and desktop
+                      case 1: // Tall card
+                        return "col-span-1 row-span-2 md:col-span-1 md:row-span-2";
+                      case 2: // Wide card
+                        return "col-span-1 row-span-1 md:col-span-1 md:row-span-1";
+                      case 3: // Medium card
+                        return "col-span-2 row-span-1 md:col-span-2 md:row-span-1";
+                      case 4: // Small card
+                        return "col-span-1 row-span-1 md:col-span-1 md:row-span-1";
+                      case 5: // Small card
+                        return "col-span-1 row-span-1 md:col-span-1 md:row-span-1";
+                      default:
+                        return "col-span-1 row-span-1";
                     }
+                  };
 
-                    const totalItems = workItems.slice(0, 4).length
+                  // Check if it's a CMS item or demo item
+                  const isCMSItem = 'coverImage' in item;
+                  const isDemo = !isCMSItem;
 
-                    return (
-                      <Link key={index} href={`/work/${item.slug}`} className="block">
-                        <div
-                          className={`group relative overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300 ${getBentoClass(index, totalItems)}`}
-                        >
-                          {/* Arrow Icon */}
+                  return (
+                    <Link 
+                      key={`${item.company}-${index}`} 
+                      href={isCMSItem ? `/work/${item.slug}` : "#"} 
+                      className={`block ${isDemo ? 'cursor-default' : ''}`}
+                    >
+                      <div className={`group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 h-full ${getBentoClass(index)} ${isDemo ? item.color : 'bg-white border border-border'}`}>
+                        
+                        {/* Arrow Icon - only for real work items */}
+                        {!isDemo && (
                           <div className="absolute top-4 right-4 z-20">
                             <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
                               <ArrowRight className="w-3 h-3 text-foreground" />
                             </div>
                           </div>
+                        )}
 
-                          {/* Background Image - positioned at bottom right */}
-                          {item.coverImage && (
-                            <div className="absolute bottom-0 right-0 w-4/5 h-4/5">
-                              <Image
-                                src={`https:${item.coverImage.fields.file.url}`}
-                                alt={item.coverImage.fields.title || item.title}
-                                fill
-                                className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          )}
+                        {/* Demo label for mock items */}
+                        {isDemo && (
+                          <div className="absolute top-4 right-4 z-20">
+                            <span className="text-xs bg-black/20 text-white px-2 py-1 rounded-full font-medium backdrop-blur-sm">
+                              Demo
+                            </span>
+                          </div>
+                        )}
 
-                          {/* Content - positioned at top left */}
-                          <div className="relative z-10 p-4 h-full flex flex-col">
-                            <div className="text-foreground">
-                              <h4 className="font-medium mb-1">{item.company}</h4>
-                              <p className="text-sm text-muted-foreground mb-1">{item.subtitle}</p>
-                              <span className="text-xs text-muted-foreground">{item.year}</span>
-                                                        </div>
+                        {/* Background Image */}
+                        {isCMSItem && item.coverImage && (
+                          <div className="absolute bottom-0 right-0 w-4/5 h-4/5">
+                            <Image
+                              src={`https:${item.coverImage.fields.file.url}`}
+                              alt={item.coverImage.fields.title || item.title}
+                              fill
+                              className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
+
+                        {/* Demo background pattern */}
+                        {isDemo && (
+                          <div className="absolute inset-0 opacity-10">
+                            <div className={`w-full h-full ${index === 0 ? 'bg-gradient-to-br from-transparent to-black/20' : index % 2 === 0 ? 'bg-gradient-to-tr from-transparent to-black/10' : 'bg-gradient-to-bl from-transparent to-black/10'}`}></div>
+                          </div>
+                        )}
+
+                        {/* Content */}
+                        <div className="relative z-10 p-3 md:p-4 h-full flex flex-col justify-between">
+                          <div className={isDemo ? item.textColor : "text-foreground"}>
+                            <h4 className="font-medium mb-1 text-sm md:text-base">{item.company}</h4>
+                            <p className={`text-xs md:text-sm mb-1 ${isDemo ? 'opacity-80' : 'text-muted-foreground'}`}>
+                              {isCMSItem ? item.subtitle : item.subtitle}
+                            </p>
+                            <span className={`text-xs ${isDemo ? 'opacity-60' : 'text-muted-foreground'}`}>
+                              {item.year}
+                            </span>
                           </div>
 
-                          {/* New label for featured items */}
-                          {item.featured && (
-                            <div className="absolute bottom-4 left-4 z-20">
+                          {/* Featured badge */}
+                          {(item.featured || (isDemo && index === 0)) && (
+                            <div className="mt-2">
                               <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-medium">
-                                New
+                                {index === 0 ? 'Featured' : 'New'}
                               </span>
                             </div>
                           )}
                         </div>
-                      </Link>
-                    )
-                  })
-               : // Fallback to simple grid if no Contentful data
-                [
-                  { company: "Ravelin", period: "2021 - Present", slug: "ravelin" },
-                  { company: "GetGround", period: "2021", slug: "getground" },
-                  { company: "OakNorth", period: "2019 - 21", slug: "oaknorth" },
-                  { company: "Beamery", period: "2018 - 19", slug: "beamery" },
-                ]
-                  .slice(0, 4)
-                  .map((item, index) => {
-                    const getBentoClass = (index: number, totalItems: number) => {
-                      // Special case for single item - make it square but wider
-                      if (totalItems === 1) {
-                        return "col-span-2 aspect-square" // Full width but square
-                      }
-
-                      // Check if this is the last item and the total count is odd (meaning it's alone in its row)
-                      const isLastItemAlone = index === totalItems - 1 && totalItems % 2 === 1
-
-                      if (isLastItemAlone) {
-                        return "col-span-2 aspect-square" // Full width and square
-                      }
-
-                      // All cards are now square
-                      return "col-span-1 row-span-1 aspect-square"
-                    }
-
-                    const fallbackItems = [
-                      { company: "Ravelin", period: "2021 - Present", slug: "ravelin" },
-                      { company: "GetGround", period: "2021", slug: "getground" },
-                      { company: "OakNorth", period: "2019 - 21", slug: "oaknorth" },
-                      { company: "Beamery", period: "2018 - 19", slug: "beamery" },
-                    ].slice(0, 4)
-
-                    const totalItems = fallbackItems.length
-
-                    return (
-                      <Link key={index} href={`/work/${item.slug}`} className="block">
-                        <div
-                          className={`group relative overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300 ${getBentoClass(index, totalItems)}`}
-                        >
-                          {/* Arrow Icon */}
-                          <div className="absolute top-4 right-4 z-20">
-                            <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-                              <ArrowRight className="w-3 h-3 text-foreground" />
-                            </div>
-                          </div>
-
-                          {/* Content - positioned at top left */}
-                          <div className="relative z-10 p-4 h-full flex flex-col">
-                            <div className="text-foreground">
-                              <h4 className="font-medium mb-1">{item.company}</h4>
-                              <span className="text-xs text-muted-foreground">{item.period}</span>
-                            </div>
-                          </div>
-
-
-                        </div>
-                      </Link>
-                    )
-                  })}
-          </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            );
+          })()}
 
           <Link
             href="https://drive.google.com/file/d/1pAY4fx0UXpjMMePJ3yLQc644Kt2k5cmE/view?usp=sharing"
