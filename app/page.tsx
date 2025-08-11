@@ -66,16 +66,16 @@ export default async function HomePage() {
             </p>
 
             <p>
-              In my free time I'm designing a coffee dripper, and building an app called{" "}
+              In my free time I'm designing a coffee dripper, and making some{" "}
               <Link
-                href="https://ourscene.uk/"
+                href="https://www.mostlywork.ing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:underline"
               >
-                Scene
+                software
               </Link>
-              {" "}that helps people find local gigs. I also do the odd bit of freelance work, so feel free to reach out.
+              {" "}to help remote teams work and play better together. I also do the odd bit of freelance work, so feel free to reach out.
             </p>
           </div>
         </div>
