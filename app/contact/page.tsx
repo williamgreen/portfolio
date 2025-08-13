@@ -70,27 +70,12 @@ export default function ContactPage() {
       return;
     }
 
-    // Debug: Log form data before submission
-    const formData = new FormData(e.currentTarget);
-    console.log("=== FORM SUBMISSION DEBUG ===");
-    console.log("Form action:", e.currentTarget.action);
-    console.log("Form method:", e.currentTarget.method);
-    console.log("reCAPTCHA response:", recaptchaResponse);
-    console.log("Form data entries:");
-    for (const [key, value] of formData.entries()) {
-      console.log(`  ${key}: ${value}`);
-    }
-    console.log("===============================");
-
-    // Let the form submit naturally - don't prevent default
-    // This avoids all CORS issues by using traditional form submission
+    // Remove the JavaScript handler and let the browser submit naturally
+    // This is exactly what the working "Test Real Form" button did
+    e.currentTarget.onsubmit = null;
     setIsSubmitting(true);
 
-    // Show success message after a delay (form will redirect)
-    setTimeout(() => {
-      setSubmitStatus("success");
-      setIsSubmitting(false);
-    }, 1000);
+    // Don't prevent default - let the form submit to Formspark naturally
   };
 
   return (
