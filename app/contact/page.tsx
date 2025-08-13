@@ -62,7 +62,7 @@ export default function ContactPage() {
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // Check if reCAPTCHA was completed
+    // Check if reCAPTCHA was completed (same validation as working button)
     const recaptchaResponse = (window as any).grecaptcha?.getResponse();
     if (!recaptchaResponse) {
       e.preventDefault();
@@ -70,12 +70,14 @@ export default function ContactPage() {
       return;
     }
 
-    // Remove the JavaScript handler and let the browser submit naturally
-    // This is exactly what the working "Test Real Form" button did
-    e.currentTarget.onsubmit = null;
+    // Replicate exactly what the working "Submit Real Form" button did
+    e.preventDefault();
     setIsSubmitting(true);
 
-    // Don't prevent default - let the form submit to Formspark naturally
+    // Submit directly like the working button
+    const form = e.currentTarget;
+    form.onsubmit = null; // Remove this handler
+    form.submit(); // Direct submission to Formspark
   };
 
   return (
@@ -156,9 +158,7 @@ export default function ContactPage() {
             disabled={isSubmitting}
           />
 
-          <div className="flex justify-center">
-            <div ref={recaptchaRef} style={{ minHeight: "78px" }}></div>
-          </div>
+          <div ref={recaptchaRef} style={{ minHeight: "78px" }}></div>
 
           <Button
             type="submit"
