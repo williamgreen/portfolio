@@ -70,7 +70,7 @@ export default function ColophonPage() {
                   . The design is based on an old Framer template called Console
                   by{" "}
                   <Link
-                    href="https://reijggle.com"
+                    href="https://rejiggle.framer.website/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground hover:underline"
