@@ -21,7 +21,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-24">
       <div className="max-w-2xl mx-auto px-6 py-12">
-        {/* Profile Section */}
+        {/* Profile Section - Updated */}
         <AnimateOnScroll loadOnMount={true}>
           <div className="flex items-center gap-4 mb-12">
             <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
