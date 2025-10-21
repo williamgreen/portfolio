@@ -145,3 +145,4 @@ This project is personal portfolio code. While the code is open source for refer
 Will Green - [Contact Form](https://www.willgreen.co.uk/contact)
 
 Project Link: [https://github.com/williamgreen/portfolio](https://github.com/williamgreen/portfolio)
+# Profile picture updated
