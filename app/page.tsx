@@ -26,7 +26,7 @@ export default async function HomePage() {
           <div className="flex items-center gap-4 mb-12">
             <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FC_20250517_0003%202.jpg-XCeZyyxjRYMMV1jcvadE4LB3zf1h0E.jpeg"
+                src="/profile-picture.jpg"
                 alt="Will Green"
                 width={48}
                 height={48}
