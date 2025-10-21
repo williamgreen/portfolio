@@ -568,6 +568,3 @@ export default async function HomePage() {
     </div>
   );
 }
-<!-- Deployment test -->
-<!-- Another test -->
-<!-- Fixed email address -->
