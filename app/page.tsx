@@ -138,14 +138,6 @@ export default async function HomePage() {
                 LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
-                href="https://www.instagram.com/willgpd/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                Instagram <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
                 href="https://dribbble.com/willgreen"
                 target="_blank"
                 rel="noopener noreferrer"
