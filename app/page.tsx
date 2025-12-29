@@ -73,35 +73,31 @@ export default async function HomePage() {
               </p>
 
               <p>
-                During my ~10 years in design and tech I have worked on a
-                variety of different consumer and enterprise products across
-                various sectors.
-              </p>
-
-              <p>
-                In my free time I'm designing a coffee dripper, and making some{" "}
+                I also run{" "}
                 <Link
-                  href="https://www.mostlywork.ing"
+                  href="https://studioreturn.co"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground hover:underline"
                 >
-                  software
-                </Link>{" "}
-                to help remote teams work and play better together. I also do
-                the odd bit of freelance work, so feel free to reach out.
+                  Return
+                </Link>
+                , a small product design studio. Our first product,{" "}
+                <Link
+                  href="https://letsbreakout.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:underline"
+                >
+                  Breakout
+                </Link>
+                , launches soon.
+              </p>
+              <p>
+                If you'd like to hire me on a freelance basis, please get in
+                touch below.
               </p>
             </div>
-          </div>
-        </AnimateOnScroll>
-
-        {/* Availability Status */}
-        <AnimateOnScroll loadOnMount={true}>
-          <div className="flex items-center gap-2 mb-8">
-            <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-            <span className="text-muted-foreground">
-              Available for freelance work
-            </span>
           </div>
         </AnimateOnScroll>
 
