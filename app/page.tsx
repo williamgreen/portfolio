@@ -91,7 +91,7 @@ export default async function HomePage() {
                 >
                   Breakout
                 </Link>
-                , launches soon.
+                , is available now.
               </p>
               <p>
                 If you'd like to hire me on a freelance basis, please get in
@@ -146,7 +146,7 @@ export default async function HomePage() {
                 Dribbble <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
-                href="https://bsky.app/profile/willg.design"
+                href="https://bsky.app/profile/willgreen.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
