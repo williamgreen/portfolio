@@ -24,7 +24,7 @@ export default async function HomePage() {
         {/* Profile Section */}
         <AnimateOnScroll loadOnMount={true}>
           <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+            <div className="w-12 h-12 rounded-xl overflow-hidden bg-gray-200">
               <Image
                 src="/profile-picture.jpg"
                 alt="Will Green"
@@ -82,16 +82,16 @@ export default async function HomePage() {
                 >
                   Return
                 </Link>
-                , a small product design studio. Our first product,{" "}
+                , a small design studio. Our first app,{" "}
                 <Link
-                  href="https://letsbreakout.com"
+                  href="https://ourscene.uk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground hover:underline"
                 >
-                  Breakout
+                  Scene
                 </Link>
-                , is available now.
+                , is available on Testflight now.
               </p>
               <p>
                 If you'd like to hire me on a freelance basis, please get in
@@ -136,6 +136,14 @@ export default async function HomePage() {
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
                 LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
+              </Link>
+              <Link
+                href="https://instagram.com/willgpd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
+              >
+                Instagram <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://dribbble.com/willgreen"
