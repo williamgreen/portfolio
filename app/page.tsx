@@ -73,16 +73,16 @@ export default async function HomePage() {
               </p>
 
               <p>
-                I also run{" "}
+                I also make stuff at{" "}
                 <Link
-                  href="https://studioreturn.co"
+                  href="https://mostlywork.ing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground hover:underline"
                 >
-                  Return
+                  mostlywork.ing
                 </Link>
-                , a small design studio. Our first app,{" "}
+                . Our first product,{" "}
                 <Link
                   href="https://ourscene.uk"
                   target="_blank"
