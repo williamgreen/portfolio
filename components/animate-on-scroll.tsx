@@ -57,13 +57,13 @@ export default function AnimateOnScroll({
   return (
     <div
       ref={elementRef}
-      className={`transition-all ease-out ${
+      className={`[overflow-anchor:none] transition-all ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       } ${className}`}
       style={{
         transitionDuration: `${duration}ms`,
-        transitionDelay: "0ms", // No delay - all elements animate together
-        willChange: "opacity, transform", // Optimize for animations
+        transitionDelay: "0ms",
+        willChange: "opacity, transform",
       }}
     >
       {children}
