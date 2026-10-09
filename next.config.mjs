@@ -13,10 +13,6 @@ const nextConfig = {
         protocol: "https",
         hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
       },
-      {
-        protocol: "https",
-        hostname: "images.ctfassets.net",
-      },
     ],
   },
   async headers() {
@@ -39,7 +35,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-scripts.com *.vercel.app https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' *.contentful.com *.vercel.app https://www.google.com https://submit-form.com https://*.formspark.io; frame-src https://www.google.com;",
+              "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-scripts.com *.vercel.app https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' *.vercel.app https://www.google.com https://submit-form.com https://*.formspark.io; frame-src https://www.google.com;",
           },
         ],
       },

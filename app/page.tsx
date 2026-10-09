@@ -9,11 +9,11 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedText from "@/components/animated-text";
 import BottomNavigation from "@/components/bottom-navigation";
 import Footer from "@/components/footer";
 import AnimateOnScroll from "@/components/animate-on-scroll";
-import { getWorkItems } from "@/lib/contentful";
+import WorkCard from "@/components/work-card";
+import { getWorkItems } from "@/lib/work";
 
 export default async function HomePage() {
   const workItems = await getWorkItems();
@@ -40,16 +40,12 @@ export default async function HomePage() {
           </div>
         </AnimateOnScroll>
 
-        {/* Main Heading with Animated Text */}
+        {/* Intro */}
         <AnimateOnScroll loadOnMount={true}>
           <div className="mb-8">
-            <h2 className="text-4xl font-bold mb-6">
-              I design <AnimatedText />
-            </h2>
-
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm Will, a Product Designer based in Bristol, UK. I'm currently
+                I'm Will, a designer based in Bristol, UK. I'm currently
                 at{" "}
                 <Link
                   href="https://www.ravelin.com/"
@@ -58,22 +54,8 @@ export default async function HomePage() {
                   className="text-foreground hover:underline"
                 >
                   Ravelin
-                </Link>
-                , building software to help companies detect and prevent fraud.
-                We recently announced that we've been acquired by{" "}
-                <Link
-                  href="https://corporate.worldpay.com/news-releases/news-release-details/worldpay-acquire-ravelin-leading-ai-native-fraud-prevention"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
-                >
-                  Worldpay
-                </Link>
-                .
-              </p>
-
-              <p>
-                I also make stuff at{" "}
+                </Link>, making software to help companies detect and prevent fraud.
+                I also make things at{" "}
                 <Link
                   href="https://mostlywork.ing"
                   target="_blank"
@@ -81,21 +63,20 @@ export default async function HomePage() {
                   className="text-foreground hover:underline"
                 >
                   mostlywork.ing
-                </Link>
-                . Our first product,{" "}
+                </Link>{" "}
+                and work part-time as a{" "}
                 <Link
-                  href="https://ourscene.uk"
+                  href="https://instagram.com/willgmoves"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-foreground hover:underline"
                 >
-                  Scene
-                </Link>
-                , is available on Testflight now.
+                  personal trainer
+                </Link>.
               </p>
               <p>
-                If you'd like to hire me on a freelance basis, please get in
-                touch below.
+                I am occasionally available for freelance work, so feel free to
+                get in touch below or schedule a call.
               </p>
             </div>
           </div>
@@ -195,192 +176,9 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-              {workItems.length > 0
-                ? // Show Contentful data in bento grid
-                  workItems.slice(0, 4).map((item, index) => {
-                    // Define different sizes for bento layout with all cards square
-                    const getBentoClass = (
-                      index: number,
-                      totalItems: number
-                    ) => {
-                      // Special case for single item - make it square but wider
-                      if (totalItems === 1) {
-                        return "col-span-2 aspect-square"; // Full width but square
-                      }
-
-                      // Check if this is the last item and the total count is odd (meaning it's alone in its row)
-                      const isLastItemAlone =
-                        index === totalItems - 1 && totalItems % 2 === 1;
-
-                      if (isLastItemAlone) {
-                        return "col-span-2 aspect-square"; // Full width and square
-                      }
-
-                      // All cards are now square
-                      return "col-span-1 row-span-1 aspect-square";
-                    };
-
-                    const totalItems = workItems.slice(0, 4).length;
-
-                    return (
-                      <Link
-                        key={index}
-                        href={`/work/${item.slug}`}
-                        className="block"
-                      >
-                        <div
-                          className={`group relative overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300 ${getBentoClass(
-                            index,
-                            totalItems
-                          )}`}
-                        >
-                          {/* Arrow Icon */}
-                          <div className="absolute top-4 right-4 z-20">
-                            <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-                              <ArrowRight className="w-3 h-3 text-foreground" />
-                            </div>
-                          </div>
-
-                          {/* Background Image - positioned at bottom right */}
-                          {item.coverImage && (
-                            <div className="absolute bottom-0 right-0 w-4/5 h-4/5">
-                              <Image
-                                src={`https:${item.coverImage.fields.file.url}`}
-                                alt={item.coverImage.fields.title || item.title}
-                                fill
-                                className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          )}
-
-                          {/* Content - positioned at top left */}
-                          <div className="relative z-10 p-4 h-full flex flex-col">
-                            <div className="text-foreground">
-                              <h4 className="font-medium mb-1">
-                                {item.company}
-                              </h4>
-                              <p className="text-sm text-muted-foreground mb-1">
-                                {item.subtitle}
-                              </p>
-                              <span className="text-xs text-muted-foreground">
-                                {item.year}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* New label for featured items */}
-                          {item.featured && (
-                            <div className="absolute bottom-4 left-4 z-20">
-                              <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-medium">
-                                New
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </Link>
-                    );
-                  })
-                : // Fallback to simple grid if no Contentful data
-                  [
-                    {
-                      company: "Ravelin",
-                      period: "2021 - Present",
-                      slug: "ravelin",
-                    },
-                    { company: "GetGround", period: "2021", slug: "getground" },
-                    {
-                      company: "OakNorth",
-                      period: "2019 - 21",
-                      slug: "oaknorth",
-                    },
-                    {
-                      company: "Beamery",
-                      period: "2018 - 19",
-                      slug: "beamery",
-                    },
-                  ]
-                    .slice(0, 4)
-                    .map((item, index) => {
-                      const getBentoClass = (
-                        index: number,
-                        totalItems: number
-                      ) => {
-                        // Special case for single item - make it square but wider
-                        if (totalItems === 1) {
-                          return "col-span-2 aspect-square"; // Full width but square
-                        }
-
-                        // Check if this is the last item and the total count is odd (meaning it's alone in its row)
-                        const isLastItemAlone =
-                          index === totalItems - 1 && totalItems % 2 === 1;
-
-                        if (isLastItemAlone) {
-                          return "col-span-2 aspect-square"; // Full width and square
-                        }
-
-                        // All cards are now square
-                        return "col-span-1 row-span-1 aspect-square";
-                      };
-
-                      const fallbackItems = [
-                        {
-                          company: "Ravelin",
-                          period: "2021 - Present",
-                          slug: "ravelin",
-                        },
-                        {
-                          company: "GetGround",
-                          period: "2021",
-                          slug: "getground",
-                        },
-                        {
-                          company: "OakNorth",
-                          period: "2019 - 21",
-                          slug: "oaknorth",
-                        },
-                        {
-                          company: "Beamery",
-                          period: "2018 - 19",
-                          slug: "beamery",
-                        },
-                      ].slice(0, 4);
-
-                      const totalItems = fallbackItems.length;
-
-                      return (
-                        <Link
-                          key={index}
-                          href={`/work/${item.slug}`}
-                          className="block"
-                        >
-                          <div
-                            className={`group relative overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300 ${getBentoClass(
-                              index,
-                              totalItems
-                            )}`}
-                          >
-                            {/* Arrow Icon */}
-                            <div className="absolute top-4 right-4 z-20">
-                              <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-                                <ArrowRight className="w-3 h-3 text-foreground" />
-                              </div>
-                            </div>
-
-                            {/* Content - positioned at top left */}
-                            <div className="relative z-10 p-4 h-full flex flex-col">
-                              <div className="text-foreground">
-                                <h4 className="font-medium mb-1">
-                                  {item.company}
-                                </h4>
-                                <span className="text-xs text-muted-foreground">
-                                  {item.period}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      );
-                    })}
+              {workItems.slice(0, 4).map((item) => (
+                <WorkCard key={item.slug} item={item} showFeatured />
+              ))}
             </div>
 
             <Link
