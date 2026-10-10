@@ -30,22 +30,18 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
   return (
     <Link
       href={`/work/${item.slug}`}
-      className={cn(
-        "block col-span-1 aspect-square",
-        item.wide && "md:col-span-2 md:aspect-[2/1]",
-        className,
-      )}
+      className={cn("block aspect-square md:aspect-[2/1]", className)}
     >
       <div className="group relative h-full overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300">
-        <div className={cn("absolute top-4 right-4 z-20", item.wide && "md:hidden")}>
+        <div className="absolute top-4 right-4 z-20 md:hidden">
           <ArrowButton />
         </div>
 
         {item.coverImage && (
           <div
             className={cn(
-              "absolute bottom-0 right-0 w-4/5 h-4/5",
-              item.wide && "md:top-0 md:right-6 md:h-full md:w-auto md:aspect-square",
+              "absolute bottom-0 right-0 w-4/5 h-4/5 md:top-0 md:h-full md:w-auto md:aspect-square",
+              !item.coverBleed && "md:right-6",
             )}
           >
             <Image
@@ -57,21 +53,18 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
           </div>
         )}
 
-        <div
-          className={cn(
-            "relative z-10 p-4 pr-12 h-full flex flex-col",
-            item.wide && "md:w-1/2 md:justify-center md:p-6",
+        <div className="relative z-10 p-4 pr-12 h-full flex flex-col md:w-1/2 md:justify-center md:p-6">
+          {showFeatured && item.featured && (
+            <div className="flex mb-3 md:absolute md:top-6 md:left-6 md:mb-0">
+              <NewBadge />
+            </div>
           )}
-        >
           <div className="text-foreground">
             <div className="flex items-center gap-2 mb-1">
               <h4 className="font-medium">{item.company}</h4>
-              {showFeatured && item.featured && <NewBadge />}
-              {item.wide && (
-                <span className="hidden md:inline-flex">
-                  <ArrowButton />
-                </span>
-              )}
+              <span className="hidden md:inline-flex">
+                <ArrowButton />
+              </span>
             </div>
             <p className="text-sm text-muted-foreground mb-1">{item.subtitle}</p>
             <span className="text-xs text-muted-foreground">{item.year}</span>

@@ -175,7 +175,7 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+            <div className="grid grid-cols-1 gap-3 mb-6">
               {workItems.slice(0, 4).map((item) => (
                 <WorkCard key={item.slug} item={item} showFeatured />
               ))}

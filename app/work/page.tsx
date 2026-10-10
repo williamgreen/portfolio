@@ -32,7 +32,7 @@ export default async function WorkPage() {
 
         {/* Work Grid */}
         <AnimateOnScroll loadOnMount={true}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12">
+          <div className="grid grid-cols-1 gap-3 mb-12">
             {workItems.map((item) => (
               <WorkCard key={item.slug} item={item} />
             ))}

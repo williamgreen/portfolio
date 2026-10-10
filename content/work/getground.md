@@ -7,6 +7,7 @@ website: https://getground.co.uk/
 order: 2
 cover: /images/work/getground-cover.png
 coverAlt: getground-thumbnail
+coverBleed: true
 ---
 
 Sorry, I haven't gotten around to writing about my work here just yet…

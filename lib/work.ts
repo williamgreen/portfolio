@@ -20,7 +20,7 @@ export interface WorkItem {
   websiteLink?: string
   featured?: boolean
   order?: number
-  wide?: boolean
+  coverBleed?: boolean
   coverImage?: WorkCoverImage
   body: string
 }
@@ -33,7 +33,7 @@ type WorkFrontmatter = {
   website?: string
   featured?: boolean
   order?: number
-  wide?: boolean
+  coverBleed?: boolean
   cover?: string
   coverAlt?: string
 }
@@ -82,7 +82,7 @@ function parseWorkFile(filename: string): WorkItem {
     websiteLink: frontmatter.website,
     featured: Boolean(frontmatter.featured),
     order: typeof frontmatter.order === "number" ? frontmatter.order : undefined,
-    wide: Boolean(frontmatter.wide),
+    coverBleed: Boolean(frontmatter.coverBleed),
     coverImage: resolveCover(frontmatter.cover, frontmatter.coverAlt, frontmatter.title),
     body: content.trim(),
   }

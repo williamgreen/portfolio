@@ -141,7 +141,7 @@ export default async function WorkItemPage({
           <AnimateOnScroll loadOnMount={true}>
             <div className="mb-12">
               <h3 className="font-semibold mb-6">More work</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
                 {otherWorkItems.map((item) => (
                   <WorkCard key={item.slug} item={item} showFeatured />
                 ))}

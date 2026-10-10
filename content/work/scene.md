@@ -4,7 +4,6 @@ subtitle: Letterboxd for gigs.
 company: Scene
 year: "2026"
 order: 0
-wide: true
 featured: true
 cover: /images/work/scene-cover.png
 coverAlt: Scene
