@@ -219,7 +219,7 @@ export default async function HomePage() {
 
             <div className="flex flex-col gap-4">
               <Link
-                href="https://store.willgreen.co.uk/buy/3ef1d386-10f9-4f44-bf62-5f3267735e1d"
+                href="https://willgreen.gumroad.com/l/garmin"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -249,7 +249,7 @@ export default async function HomePage() {
               </Link>
 
               <Link
-                href="https://store.willgreen.co.uk/buy/047e9f0c-3111-4f0f-9cd0-6bc284950c86"
+                href="https://willgreen.gumroad.com/l/fotmob-icons"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -280,7 +280,7 @@ export default async function HomePage() {
             </div>
 
             <Link
-              href="https://store.willgreen.co.uk/"
+              href="https://willgreen.gumroad.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
