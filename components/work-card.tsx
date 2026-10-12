@@ -55,7 +55,7 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
           >
             {item.coverVideo ? (
               <CoverVideo
-                src={item.coverVideo}
+                sources={item.coverVideo}
                 poster={item.coverImage?.src}
                 label={item.coverImage?.alt || item.title}
                 className="group-hover:scale-105 transition-transform duration-300"

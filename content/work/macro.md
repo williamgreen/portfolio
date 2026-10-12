@@ -8,6 +8,8 @@ wide: true
 featured: true
 link: https://usemacro.app
 cover: /images/work/macro-cover.png
-coverVideo: /images/work/macro-cover.mp4
+coverVideo:
+  - /images/work/macro-cover.mp4
+  - /images/work/macro-cover.webm
 coverAlt: Macro
 ---

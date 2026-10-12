@@ -3,16 +3,22 @@
 import { useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 
+const VIDEO_TYPES: Record<string, string> = {
+  mp4: "video/mp4",
+  webm: "video/webm",
+}
+
 interface CoverVideoProps {
-  src: string
+  sources: string[]
   poster?: string
   label: string
   className?: string
 }
 
-// Muted looping cover animation. It only plays while on screen, and with
-// reduced motion it stays on the poster frame.
-export default function CoverVideo({ src, poster, label, className }: CoverVideoProps) {
+// Muted looping cover animation. Sources are tried in order, so list the
+// H.264 MP4 first and a VP9 WebM after it for browsers without H.264. It only
+// plays while on screen, and with reduced motion it stays on the poster frame.
+export default function CoverVideo({ sources, poster, label, className }: CoverVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -46,7 +52,6 @@ export default function CoverVideo({ src, poster, label, className }: CoverVideo
   return (
     <video
       ref={videoRef}
-      src={src}
       poster={poster}
       aria-label={label}
       muted
@@ -54,6 +59,10 @@ export default function CoverVideo({ src, poster, label, className }: CoverVideo
       playsInline
       preload="auto"
       className={cn("absolute inset-0 h-full w-full object-contain object-right-bottom", className)}
-    />
+    >
+      {sources.map((src) => (
+        <source key={src} src={src} type={VIDEO_TYPES[src.split(".").pop() ?? ""]} />
+      ))}
+    </video>
   )
 }
