@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
+import CoverVideo from "@/components/cover-video"
 import { cn } from "@/lib/utils"
 import type { WorkItem } from "@/lib/work"
 
@@ -45,19 +46,30 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
           <ArrowButton external={external} />
         </div>
 
-        {item.coverImage && (
+        {(item.coverImage || item.coverVideo) && (
           <div
             className={cn(
               "absolute bottom-0 right-0 w-4/5 h-4/5",
               item.wide && "md:top-0 md:right-6 md:h-full md:w-auto md:aspect-square",
             )}
           >
-            <Image
-              src={item.coverImage.src}
-              alt={item.coverImage.alt || item.title}
-              fill
-              className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
-            />
+            {item.coverVideo ? (
+              <CoverVideo
+                src={item.coverVideo}
+                poster={item.coverImage?.src}
+                label={item.coverImage?.alt || item.title}
+                className="group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              item.coverImage && (
+                <Image
+                  src={item.coverImage.src}
+                  alt={item.coverImage.alt || item.title}
+                  fill
+                  className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
+                />
+              )
+            )}
           </div>
         )}
 

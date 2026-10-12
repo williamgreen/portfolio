@@ -23,6 +23,7 @@ export interface WorkItem {
   order?: number
   wide?: boolean
   coverImage?: WorkCoverImage
+  coverVideo?: string
   body: string
 }
 
@@ -37,6 +38,7 @@ type WorkFrontmatter = {
   order?: number
   wide?: boolean
   cover?: string
+  coverVideo?: string
   coverAlt?: string
 }
 
@@ -87,6 +89,7 @@ function parseWorkFile(filename: string): WorkItem {
     order: typeof frontmatter.order === "number" ? frontmatter.order : undefined,
     wide: Boolean(frontmatter.wide),
     coverImage: resolveCover(frontmatter.cover, frontmatter.coverAlt, frontmatter.title),
+    coverVideo: frontmatter.coverVideo,
     body: content.trim(),
   }
 }
