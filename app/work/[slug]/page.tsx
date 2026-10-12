@@ -14,9 +14,11 @@ import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const workItems = await getWorkItems();
-  return workItems.map((item) => ({
-    slug: item.slug,
-  }));
+  return workItems
+    .filter((item) => !item.externalLink)
+    .map((item) => ({
+      slug: item.slug,
+    }));
 }
 
 export async function generateMetadata({

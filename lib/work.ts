@@ -18,6 +18,7 @@ export interface WorkItem {
   company: string
   year: string
   websiteLink?: string
+  externalLink?: string
   featured?: boolean
   order?: number
   wide?: boolean
@@ -31,6 +32,7 @@ type WorkFrontmatter = {
   company: string
   year: string | number
   website?: string
+  link?: string
   featured?: boolean
   order?: number
   wide?: boolean
@@ -80,6 +82,7 @@ function parseWorkFile(filename: string): WorkItem {
     company: frontmatter.company,
     year: String(frontmatter.year),
     websiteLink: frontmatter.website,
+    externalLink: frontmatter.link,
     featured: Boolean(frontmatter.featured),
     order: typeof frontmatter.order === "number" ? frontmatter.order : undefined,
     wide: Boolean(frontmatter.wide),
@@ -112,5 +115,7 @@ export async function getWorkItem(slug: string): Promise<WorkItem | null> {
   const filename = `${slug}.md`
   const filePath = path.join(WORK_DIR, filename)
   if (!fs.existsSync(filePath)) return null
-  return parseWorkFile(filename)
+  const item = parseWorkFile(filename)
+  // External items link straight out from their card and have no work page
+  return item.externalLink ? null : item
 }

@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { WorkItem } from "@/lib/work"
 
-function ArrowButton() {
+function ArrowButton({ external = false }: { external?: boolean }) {
+  const Icon = external ? ArrowUpRight : ArrowRight
   return (
     <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-      <ArrowRight className="w-3 h-3 text-foreground" />
+      <Icon className="w-3 h-3 text-foreground" />
     </div>
   )
 }
@@ -27,9 +28,12 @@ interface WorkCardProps {
 }
 
 export default function WorkCard({ item, className, showFeatured = false }: WorkCardProps) {
+  const external = Boolean(item.externalLink)
+
   return (
     <Link
-      href={`/work/${item.slug}`}
+      href={item.externalLink ?? `/work/${item.slug}`}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
       className={cn(
         "block col-span-1 aspect-square",
         item.wide && "md:col-span-2 md:aspect-[2/1]",
@@ -38,7 +42,7 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
     >
       <div className="group relative h-full overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300">
         <div className={cn("absolute top-4 right-4 z-20", item.wide && "md:hidden")}>
-          <ArrowButton />
+          <ArrowButton external={external} />
         </div>
 
         {item.coverImage && (
@@ -69,7 +73,7 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
               {showFeatured && item.featured && <NewBadge />}
               {item.wide && (
                 <span className="hidden md:inline-flex">
-                  <ArrowButton />
+                  <ArrowButton external={external} />
                 </span>
               )}
             </div>
