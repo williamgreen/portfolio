@@ -18,10 +18,14 @@ export interface WorkItem {
   company: string
   year: string
   websiteLink?: string
+  externalLink?: string
   featured?: boolean
   order?: number
   wide?: boolean
   coverImage?: WorkCoverImage
+  coverVideo?: string[]
+  coverPoster?: string
+  coverBleed?: boolean
   body: string
 }
 
@@ -31,10 +35,14 @@ type WorkFrontmatter = {
   company: string
   year: string | number
   website?: string
+  link?: string
   featured?: boolean
   order?: number
   wide?: boolean
   cover?: string
+  coverVideo?: string | string[]
+  coverPoster?: string
+  coverBleed?: boolean
   coverAlt?: string
 }
 
@@ -80,10 +88,14 @@ function parseWorkFile(filename: string): WorkItem {
     company: frontmatter.company,
     year: String(frontmatter.year),
     websiteLink: frontmatter.website,
+    externalLink: frontmatter.link,
     featured: Boolean(frontmatter.featured),
     order: typeof frontmatter.order === "number" ? frontmatter.order : undefined,
     wide: Boolean(frontmatter.wide),
     coverImage: resolveCover(frontmatter.cover, frontmatter.coverAlt, frontmatter.title),
+    coverVideo: frontmatter.coverVideo ? [frontmatter.coverVideo].flat() : undefined,
+    coverPoster: frontmatter.coverPoster,
+    coverBleed: Boolean(frontmatter.coverBleed),
     body: content.trim(),
   }
 }
@@ -112,5 +124,7 @@ export async function getWorkItem(slug: string): Promise<WorkItem | null> {
   const filename = `${slug}.md`
   const filePath = path.join(WORK_DIR, filename)
   if (!fs.existsSync(filePath)) return null
-  return parseWorkFile(filename)
+  const item = parseWorkFile(filename)
+  // External items link straight out from their card and have no work page
+  return item.externalLink ? null : item
 }

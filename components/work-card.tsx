@@ -1,13 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
+import CoverVideo from "@/components/cover-video"
 import { cn } from "@/lib/utils"
 import type { WorkItem } from "@/lib/work"
 
-function ArrowButton() {
+function ArrowButton({ external = false }: { external?: boolean }) {
+  const Icon = external ? ArrowUpRight : ArrowRight
   return (
     <div className="w-6 h-6 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-muted transition-all duration-300">
-      <ArrowRight className="w-3 h-3 text-foreground" />
+      <Icon className="w-3 h-3 text-foreground" />
     </div>
   )
 }
@@ -27,9 +29,12 @@ interface WorkCardProps {
 }
 
 export default function WorkCard({ item, className, showFeatured = false }: WorkCardProps) {
+  const external = Boolean(item.externalLink)
+
   return (
     <Link
-      href={`/work/${item.slug}`}
+      href={item.externalLink ?? `/work/${item.slug}`}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
       className={cn(
         "block col-span-1 aspect-square",
         item.wide && "md:col-span-2 md:aspect-[2/1]",
@@ -38,22 +43,38 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
     >
       <div className="group relative h-full overflow-hidden rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-all duration-300">
         <div className={cn("absolute top-4 right-4 z-20", item.wide && "md:hidden")}>
-          <ArrowButton />
+          <ArrowButton external={external} />
         </div>
 
-        {item.coverImage && (
+        {(item.coverImage || item.coverVideo) && (
           <div
             className={cn(
-              "absolute bottom-0 right-0 w-4/5 h-4/5",
-              item.wide && "md:top-0 md:right-6 md:h-full md:w-auto md:aspect-square",
+              "absolute bottom-0 w-4/5 h-4/5",
+              // Art that's cropped by its own right edge (a laptop) sits flush with the
+              // card; anything else is centred under the text when stacked
+              item.coverBleed ? "right-0" : "inset-x-0 mx-auto",
+              item.wide && "md:top-0 md:left-auto md:right-6 md:mx-0 md:h-full md:w-auto md:aspect-square",
+              item.wide && item.coverBleed && "md:right-0",
             )}
           >
-            <Image
-              src={item.coverImage.src}
-              alt={item.coverImage.alt || item.title}
-              fill
-              className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
-            />
+            {item.coverVideo ? (
+              <CoverVideo
+                sources={item.coverVideo}
+                poster={item.coverPoster ?? item.coverImage?.src}
+                still={item.coverImage?.src}
+                label={item.coverImage?.alt || item.title}
+                className="group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              item.coverImage && (
+                <Image
+                  src={item.coverImage.src}
+                  alt={item.coverImage.alt || item.title}
+                  fill
+                  className="object-contain object-bottom-right group-hover:scale-105 transition-transform duration-300"
+                />
+              )
+            )}
           </div>
         )}
 
@@ -69,7 +90,7 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
               {showFeatured && item.featured && <NewBadge />}
               {item.wide && (
                 <span className="hidden md:inline-flex">
-                  <ArrowButton />
+                  <ArrowButton external={external} />
                 </span>
               )}
             </div>

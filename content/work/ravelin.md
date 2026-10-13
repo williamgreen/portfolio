@@ -6,7 +6,13 @@ year: "2021"
 website: https://ravelin.com/
 order: 1
 # featured: true  # shows the New badge on homepage cards
+wide: true
+coverBleed: true
 cover: /images/work/ravelin-cover.png
+coverPoster: /images/work/ravelin-cover-poster.png
+coverVideo:
+  - /images/work/ravelin-cover.mp4
+  - /images/work/ravelin-cover.webm
 coverAlt: ravelin-thumbnail
 ---
 
