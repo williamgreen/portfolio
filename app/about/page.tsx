@@ -8,16 +8,16 @@ import AnimateOnScroll from "@/components/animate-on-scroll";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Colophon",
+  title: "About",
 };
 
-export default function ColophonPage() {
+export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground pb-24">
       <div className="max-w-2xl mx-auto px-6 py-12 min-h-[calc(100vh-6rem)] flex flex-col">
         <AnimateOnScroll loadOnMount={true}>
           <Breadcrumb
-            items={[{ label: "Home", href: "/" }, { label: "Colophon" }]}
+            items={[{ label: "Home", href: "/" }, { label: "About" }]}
           />
         </AnimateOnScroll>
 
@@ -25,13 +25,13 @@ export default function ColophonPage() {
         <div className="flex-1 flex flex-col justify-center">
           <AnimateOnScroll loadOnMount={true}>
             <div className="space-y-6">
-              <h1 className="text-4xl font-bold">Colophon</h1>
+              <h1 className="text-4xl font-bold">About</h1>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>This website is designed and developed by me, Will Green.</p>
 
                 <p>
-                  It is built using{" "}
+                  It is built with{" "}
                   <Link
                     href="https://nextjs.org/"
                     target="_blank"
@@ -49,7 +49,30 @@ export default function ColophonPage() {
                   >
                     Tailwind
                   </Link>
-                  . I had some help from{" "}
+                  , and hosted on{" "}
+                  <Link
+                    href="https://vercel.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:underline"
+                  >
+                    Vercel
+                  </Link>
+                  . Work case studies are written in Markdown and live
+                  alongside the code, and downloads are sold through{" "}
+                  <Link
+                    href="https://gumroad.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:underline"
+                  >
+                    Gumroad
+                  </Link>
+                  .
+                </p>
+
+                <p>
+                  The first version was put together with help from{" "}
                   <Link
                     href="https://v0.dev/"
                     target="_blank"
@@ -60,14 +83,27 @@ export default function ColophonPage() {
                   </Link>{" "}
                   and{" "}
                   <Link
-                    href="https://cursor.com/en"
+                    href="https://cursor.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground hover:underline"
                   >
                     Cursor
                   </Link>
-                  . The design is based on an old Framer template called Console
+                  . These days I build and update it with{" "}
+                  <Link
+                    href="https://claude.com/claude-code"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:underline"
+                  >
+                    Claude Code
+                  </Link>
+                  .
+                </p>
+
+                <p>
+                  The design started from an old Framer template called Console
                   by{" "}
                   <Link
                     href="https://rejiggle.framer.website/"
@@ -75,7 +111,7 @@ export default function ColophonPage() {
                     rel="noopener noreferrer"
                     className="text-foreground hover:underline"
                   >
-                    Reijggle
+                    Rejiggle
                   </Link>
                   . Any assets used are designed in{" "}
                   <Link
@@ -86,7 +122,7 @@ export default function ColophonPage() {
                   >
                     Figma
                   </Link>
-                  . The font used is{" "}
+                  . The font is{" "}
                   <Link
                     href="https://rsms.me/inter/"
                     target="_blank"

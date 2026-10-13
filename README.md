@@ -21,7 +21,7 @@ This is the personal portfolio and website for Will Green, currently working as 
 - **Work**: Complete portfolio of design projects and case studies
 - **Downloads**: Free and paid digital resources and design assets
 - **Contact**: Spam-protected contact form for inquiries
-- **Colophon**: Technical details about the site's construction
+- **About**: Details about how the site is built
 
 ## Tech Stack
 
@@ -106,7 +106,7 @@ pnpm dev
 ```
 portfolio/
 ├── app/                    # Next.js App Router pages
-│   ├── colophon/          # Site information page
+│   ├── about/             # Site information page
 │   ├── contact/           # Contact form with reCAPTCHA
 │   ├── downloads/         # Digital resources page
 │   ├── work/              # Portfolio pages

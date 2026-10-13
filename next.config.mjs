@@ -15,6 +15,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/colophon",
+        destination: "/about",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
