@@ -9,6 +9,10 @@ order: 1
 wide: true
 coverBleed: true
 cover: /images/work/ravelin-cover.png
+coverPoster: /images/work/ravelin-cover-poster.png
+coverVideo:
+  - /images/work/ravelin-cover.mp4
+  - /images/work/ravelin-cover.webm
 coverAlt: ravelin-thumbnail
 ---
 

@@ -27,6 +27,9 @@ const fill = "absolute inset-0 h-full w-full object-contain object-right-bottom"
 export default function CoverVideo({ sources, poster, still, label, className }: CoverVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [failed, setFailed] = useState(false)
+  // When the still shows, the video is hidden rather than left under it: a
+  // transparent still over the poster would draw its shadows twice.
+  const hasStill = Boolean(still && still !== poster)
 
   useEffect(() => {
     const video = videoRef.current
@@ -66,15 +69,15 @@ export default function CoverVideo({ sources, poster, still, label, className }:
         loop
         playsInline
         preload="auto"
-        className={fill}
+        className={cn(fill, hasStill && "motion-reduce:invisible", hasStill && failed && "invisible")}
       >
         {sources.map((src) => (
           <source key={src} src={src} type={VIDEO_TYPES[src.split(".").pop() ?? ""]} />
         ))}
       </video>
-      {still && still !== poster && (
+      {hasStill && (
         <Image
-          src={still}
+          src={still!}
           alt=""
           aria-hidden
           fill
