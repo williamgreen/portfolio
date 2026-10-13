@@ -5,6 +5,8 @@ company: GetGround
 year: "2021"
 website: https://getground.co.uk/
 order: 2
+wide: true
+coverBleed: true
 cover: /images/work/getground-cover.png
 coverAlt: getground-thumbnail
 ---

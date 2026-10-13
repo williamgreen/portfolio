@@ -51,12 +51,15 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
             className={cn(
               "absolute bottom-0 right-0 w-4/5 h-4/5",
               item.wide && "md:top-0 md:right-6 md:h-full md:w-auto md:aspect-square",
+              // Art that's cropped by its own right edge (a laptop) sits flush with the card
+              item.wide && item.coverBleed && "md:right-0",
             )}
           >
             {item.coverVideo ? (
               <CoverVideo
                 sources={item.coverVideo}
-                poster={item.coverImage?.src}
+                poster={item.coverPoster ?? item.coverImage?.src}
+                still={item.coverImage?.src}
                 label={item.coverImage?.alt || item.title}
                 className="group-hover:scale-105 transition-transform duration-300"
               />

@@ -24,6 +24,8 @@ export interface WorkItem {
   wide?: boolean
   coverImage?: WorkCoverImage
   coverVideo?: string[]
+  coverPoster?: string
+  coverBleed?: boolean
   body: string
 }
 
@@ -39,6 +41,8 @@ type WorkFrontmatter = {
   wide?: boolean
   cover?: string
   coverVideo?: string | string[]
+  coverPoster?: string
+  coverBleed?: boolean
   coverAlt?: string
 }
 
@@ -90,6 +94,8 @@ function parseWorkFile(filename: string): WorkItem {
     wide: Boolean(frontmatter.wide),
     coverImage: resolveCover(frontmatter.cover, frontmatter.coverAlt, frontmatter.title),
     coverVideo: frontmatter.coverVideo ? [frontmatter.coverVideo].flat() : undefined,
+    coverPoster: frontmatter.coverPoster,
+    coverBleed: Boolean(frontmatter.coverBleed),
     body: content.trim(),
   }
 }
