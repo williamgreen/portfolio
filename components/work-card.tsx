@@ -49,9 +49,11 @@ export default function WorkCard({ item, className, showFeatured = false }: Work
         {(item.coverImage || item.coverVideo) && (
           <div
             className={cn(
-              "absolute bottom-0 right-0 w-4/5 h-4/5",
-              item.wide && "md:top-0 md:right-6 md:h-full md:w-auto md:aspect-square",
-              // Art that's cropped by its own right edge (a laptop) sits flush with the card
+              "absolute bottom-0 w-4/5 h-4/5",
+              // Art that's cropped by its own right edge (a laptop) sits flush with the
+              // card; anything else is centred under the text when stacked
+              item.coverBleed ? "right-0" : "inset-x-0 mx-auto",
+              item.wide && "md:top-0 md:left-auto md:right-6 md:mx-0 md:h-full md:w-auto md:aspect-square",
               item.wide && item.coverBleed && "md:right-0",
             )}
           >
