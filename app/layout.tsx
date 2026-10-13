@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Will Green - Product Designer",
   },
   description:
-    "Product Designer based in Bristol, UK. Currently at Ravelin building fraud prevention software.",
+    "Product designer based in Bristol, UK.",
   generator: "Next.js",
   icons: {
     icon: "/favicon.ico",
