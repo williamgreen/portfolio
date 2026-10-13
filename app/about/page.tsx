@@ -28,10 +28,8 @@ export default function AboutPage() {
               <h1 className="text-4xl font-bold">About</h1>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>This website is designed and developed by me, Will Green.</p>
-
                 <p>
-                  It is built with{" "}
+                  This website is built with{" "}
                   <Link
                     href="https://nextjs.org/"
                     target="_blank"
@@ -49,62 +47,8 @@ export default function AboutPage() {
                   >
                     Tailwind
                   </Link>
-                  , and hosted on{" "}
-                  <Link
-                    href="https://vercel.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground hover:underline"
-                  >
-                    Vercel
-                  </Link>
-                  . Work case studies are written in Markdown and live
-                  alongside the code, and downloads are sold through{" "}
-                  <Link
-                    href="https://gumroad.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground hover:underline"
-                  >
-                    Gumroad
-                  </Link>
-                  .
-                </p>
-
-                <p>
-                  The first version was put together with help from{" "}
-                  <Link
-                    href="https://v0.dev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground hover:underline"
-                  >
-                    v0
-                  </Link>{" "}
-                  and{" "}
-                  <Link
-                    href="https://cursor.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground hover:underline"
-                  >
-                    Cursor
-                  </Link>
-                  . These days I build and update it with{" "}
-                  <Link
-                    href="https://claude.com/claude-code"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground hover:underline"
-                  >
-                    Claude Code
-                  </Link>
-                  .
-                </p>
-
-                <p>
-                  The design started from an old Framer template called Console
-                  by{" "}
+                  . The design was inspired by a licensed Framer template called
+                  Console by{" "}
                   <Link
                     href="https://rejiggle.framer.website/"
                     target="_blank"
