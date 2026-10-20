@@ -224,7 +224,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
               >
                 <div className="flex items-center gap-4 p-4 rounded-lg border shadow-sm hover:shadow-md hover:bg-muted/50 transition-all duration-300 cursor-pointer">
-                  <div className="w-10 h-10 rounded-[22.37%] overflow-hidden ring-1 ring-black/10 dark:ring-white/10">
+                  <div className="w-10 h-10 ios-app-icon overflow-hidden">
                     <Image
                       src="/garmin-icons.png"
                       alt="Garmin Icons"
@@ -254,7 +254,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
               >
                 <div className="flex items-center gap-4 p-4 rounded-lg border shadow-sm hover:shadow-md hover:bg-muted/50 transition-all duration-300 cursor-pointer">
-                  <div className="w-10 h-10 rounded-[22.37%] overflow-hidden ring-1 ring-black/10 dark:ring-white/10">
+                  <div className="w-10 h-10 ios-app-icon overflow-hidden">
                     <Image
                       src="/fotmob-icons.png"
                       alt="FotMob Icons"
