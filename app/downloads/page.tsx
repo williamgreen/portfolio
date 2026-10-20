@@ -35,7 +35,7 @@ export default function DownloadsPage() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center gap-4 p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
-                <div className="w-10 h-10 rounded-full overflow-hidden">
+                <div className="w-10 h-10 ios-app-icon overflow-hidden">
                   <Image
                     src="/garmin-icons.png"
                     alt="Garmin Icons"
@@ -65,7 +65,7 @@ export default function DownloadsPage() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center gap-4 p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
-                <div className="w-10 h-10 rounded-full overflow-hidden">
+                <div className="w-10 h-10 ios-app-icon overflow-hidden">
                   <Image
                     src="/fotmob-icons.png"
                     alt="FotMob Icons"
@@ -95,7 +95,7 @@ export default function DownloadsPage() {
               rel="noopener noreferrer"
             >
               <div className="flex items-center gap-4 p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
-                <div className="w-10 h-10 rounded-full overflow-hidden">
+                <div className="w-10 h-10 ios-app-icon overflow-hidden">
                   <Image
                     src="/voyager-icons.png"
                     alt="Voyager Icons"
