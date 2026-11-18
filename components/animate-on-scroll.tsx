@@ -5,66 +5,71 @@ import { useEffect, useRef, useState } from "react";
 interface AnimateOnScrollProps {
   children: React.ReactNode;
   delay?: number;
-  duration?: number;
   className?: string;
   loadOnMount?: boolean;
 }
 
+// Stagger between sibling elements that mount together (nelson.co uses 60ms).
+const STAGGER_MS = 60;
+let mountQueue = 0;
+let resetScheduled = false;
+
+function nextStaggerIndex() {
+  const index = mountQueue++;
+  if (!resetScheduled) {
+    resetScheduled = true;
+    requestAnimationFrame(() => {
+      mountQueue = 0;
+      resetScheduled = false;
+    });
+  }
+  return index;
+}
+
 export default function AnimateOnScroll({
   children,
-  delay = 0,
-  duration = 300,
+  delay,
   className = "",
   loadOnMount = false,
 }: AnimateOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [staggerDelay, setStaggerDelay] = useState(0);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (loadOnMount) {
-      // Load immediately on mount - all elements at the same time
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 50); // Small delay to ensure smooth animation
-      return () => clearTimeout(timer);
+      setStaggerDelay(delay ?? nextStaggerIndex() * STAGGER_MS);
+      const frame = requestAnimationFrame(() =>
+        requestAnimationFrame(() => setIsVisible(true))
+      );
+      return () => cancelAnimationFrame(frame);
     }
+
+    const element = elementRef.current;
+    if (!element) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true);
-          }, 100); // Small delay to ensure smooth animation
+          setStaggerDelay(delay ?? 0);
+          setIsVisible(true);
+          observer.disconnect();
         }
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
-    };
-  }, [loadOnMount]);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [loadOnMount, delay]);
 
   return (
     <div
       ref={elementRef}
-      className={`[overflow-anchor:none] transition-all ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      className={`fade-up [overflow-anchor:none] ${
+        isVisible ? "fade-up-visible" : ""
       } ${className}`}
-      style={{
-        transitionDuration: `${duration}ms`,
-        transitionDelay: "0ms",
-        willChange: "opacity, transform",
-      }}
+      style={{ transitionDelay: `${staggerDelay}ms` }}
     >
       {children}
     </div>

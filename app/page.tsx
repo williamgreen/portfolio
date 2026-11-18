@@ -13,7 +13,49 @@ import BottomNavigation from "@/components/bottom-navigation";
 import Footer from "@/components/footer";
 import AnimateOnScroll from "@/components/animate-on-scroll";
 import WorkCard from "@/components/work-card";
+import ContributionGraph from "@/components/contribution-graph";
 import { getWorkItems } from "@/lib/work";
+import {
+  ArrowUpRightIcon,
+  GithubLogoIcon,
+  InstagramLogoIcon,
+  LinkedinLogoIcon,
+  XLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
+
+const inlineLink =
+  "text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100";
+
+const socialLinks = [
+  {
+    href: "https://x.com/willtgr",
+    handle: "willtgr",
+    label: "X.com",
+    Icon: XLogoIcon,
+    weight: "bold",
+  },
+  {
+    href: "https://www.linkedin.com/in/williamanthonygreen/",
+    handle: "williamanthonygreen",
+    label: "LinkedIn",
+    Icon: LinkedinLogoIcon,
+    weight: "fill",
+  },
+  {
+    href: "https://instagram.com/willgpd",
+    handle: "willgpd",
+    label: "Instagram",
+    Icon: InstagramLogoIcon,
+    weight: "fill",
+  },
+  {
+    href: "https://github.com/williamgreen",
+    handle: "williamgreen",
+    label: "GitHub",
+    Icon: GithubLogoIcon,
+    weight: "fill",
+  },
+] as const;
 
 export default async function HomePage() {
   const workItems = await getWorkItems();
@@ -35,7 +77,7 @@ export default async function HomePage() {
             </div>
             <div>
               <h1 className="font-semibold text-foreground">Will Green</h1>
-              <p className="text-muted-foreground text-sm">Product Designer</p>
+              <p className="text-muted-foreground text-sm">Designer</p>
             </div>
           </div>
         </AnimateOnScroll>
@@ -51,7 +93,7 @@ export default async function HomePage() {
                   href="https://www.ravelin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className={inlineLink}
                 >
                   Ravelin
                 </Link>, making software to help companies detect and prevent fraud.
@@ -60,7 +102,7 @@ export default async function HomePage() {
                   href="https://mostlywork.ing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className={inlineLink}
                 >
                   mostlywork.ing
                 </Link>{" "}
@@ -69,14 +111,14 @@ export default async function HomePage() {
                   href="https://instagram.com/willgmoves"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className={inlineLink}
                 >
                   personal trainer
                 </Link>.
               </p>
               <p>
                 I am occasionally available for freelance work, so feel free to
-                get in touch below or schedule a call.
+                get in touch below.
               </p>
             </div>
           </div>
@@ -98,7 +140,7 @@ export default async function HomePage() {
             >
               <Button variant="outline">
                 <Calendar className="w-4 h-4 mr-2" />
-                Book a call
+                Schedule a call
                 <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
               </Button>
             </Link>
@@ -109,57 +151,44 @@ export default async function HomePage() {
         <AnimateOnScroll loadOnMount={true}>
           <section className="mb-16">
             <h3 className="font-semibold text-xl mb-4">Elsewhere</h3>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="https://www.linkedin.com/in/williamanthonygreen/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://instagram.com/willgpd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                Instagram <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://dribbble.com/willgreen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                Dribbble <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://bsky.app/profile/willgreen.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                Bluesky <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://github.com/williamgreen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                GitHub <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://www.youtube.com/channel/UCzduj27Ag0yKe6OZxqse2Ng"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                YouTube <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
+            <div className="flex flex-col gap-3">
+              {socialLinks.map(({ href, handle, label, Icon, weight }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 pl-3 pr-4 py-1.5 -mx-3 rounded-[6px] hover:bg-neutral-100 dark:hover:bg-neutral-800 active:scale-[0.98] transition-all duration-150 w-[calc(100%+1.5rem)]"
+                >
+                  <div className="shrink-0 w-10 h-10 rounded-[10px] bg-neutral-50 dark:bg-neutral-800 dark:group-hover:bg-neutral-700 transition-colors duration-150 flex items-center justify-center overflow-hidden">
+                    <Icon
+                      size={20}
+                      weight={weight}
+                      className="text-foreground transition-transform duration-150 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground leading-[20px]">
+                      {handle}
+                    </p>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-[20px]">
+                      {label}
+                    </p>
+                  </div>
+                  <ArrowUpRightIcon
+                    size={14}
+                    weight="bold"
+                    className="ml-auto shrink-0 self-center text-neutral-400 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-150"
+                  />
+                </Link>
+              ))}
             </div>
           </section>
+        </AnimateOnScroll>
+
+        {/* Contribution Graph */}
+        <AnimateOnScroll loadOnMount={true}>
+          <ContributionGraph />
         </AnimateOnScroll>
 
         {/* Work Section */}
