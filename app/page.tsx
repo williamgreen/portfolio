@@ -15,47 +15,6 @@ import AnimateOnScroll from "@/components/animate-on-scroll";
 import WorkCard from "@/components/work-card";
 import ContributionGraph from "@/components/contribution-graph";
 import { getWorkItems } from "@/lib/work";
-import {
-  ArrowUpRightIcon,
-  GithubLogoIcon,
-  InstagramLogoIcon,
-  LinkedinLogoIcon,
-  XLogoIcon,
-} from "@phosphor-icons/react/dist/ssr";
-
-const inlineLink =
-  "text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100";
-
-const socialLinks = [
-  {
-    href: "https://x.com/willtgr",
-    handle: "willtgr",
-    label: "X.com",
-    Icon: XLogoIcon,
-    weight: "bold",
-  },
-  {
-    href: "https://www.linkedin.com/in/williamanthonygreen/",
-    handle: "williamanthonygreen",
-    label: "LinkedIn",
-    Icon: LinkedinLogoIcon,
-    weight: "fill",
-  },
-  {
-    href: "https://instagram.com/willgpd",
-    handle: "willgpd",
-    label: "Instagram",
-    Icon: InstagramLogoIcon,
-    weight: "fill",
-  },
-  {
-    href: "https://github.com/williamgreen",
-    handle: "williamgreen",
-    label: "GitHub",
-    Icon: GithubLogoIcon,
-    weight: "fill",
-  },
-] as const;
 
 export default async function HomePage() {
   const workItems = await getWorkItems();
@@ -93,7 +52,7 @@ export default async function HomePage() {
                   href="https://www.ravelin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={inlineLink}
+                  className="text-foreground hover:underline"
                 >
                   Ravelin
                 </Link>, making software to help companies detect and prevent fraud.
@@ -102,7 +61,7 @@ export default async function HomePage() {
                   href="https://mostlywork.ing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={inlineLink}
+                  className="text-foreground hover:underline"
                 >
                   mostlywork.ing
                 </Link>{" "}
@@ -111,7 +70,7 @@ export default async function HomePage() {
                   href="https://instagram.com/willgmoves"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={inlineLink}
+                  className="text-foreground hover:underline"
                 >
                   personal trainer
                 </Link>.
@@ -151,37 +110,39 @@ export default async function HomePage() {
         <AnimateOnScroll loadOnMount={true}>
           <section className="mb-16">
             <h3 className="font-semibold text-xl mb-4">Elsewhere</h3>
-            <div className="flex flex-col gap-3">
-              {socialLinks.map(({ href, handle, label, Icon, weight }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4 pl-3 pr-4 py-1.5 -mx-3 rounded-[6px] hover:bg-neutral-100 dark:hover:bg-neutral-800 active:scale-[0.98] transition-all duration-150 w-[calc(100%+1.5rem)]"
-                >
-                  <div className="shrink-0 w-10 h-10 rounded-[10px] bg-neutral-50 dark:bg-neutral-800 dark:group-hover:bg-neutral-700 transition-colors duration-150 flex items-center justify-center overflow-hidden">
-                    <Icon
-                      size={20}
-                      weight={weight}
-                      className="text-foreground transition-transform duration-150 group-hover:scale-110"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground leading-[20px]">
-                      {handle}
-                    </p>
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-[20px]">
-                      {label}
-                    </p>
-                  </div>
-                  <ArrowUpRightIcon
-                    size={14}
-                    weight="bold"
-                    className="ml-auto shrink-0 self-center text-neutral-400 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-150"
-                  />
-                </Link>
-              ))}
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="https://www.linkedin.com/in/williamanthonygreen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="https://instagram.com/willgpd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+              >
+                Instagram
+              </Link>
+              <Link
+                href="https://x.com/willtgr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+              >
+                X
+              </Link>
+              <Link
+                href="https://github.com/williamgreen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+              >
+                GitHub
+              </Link>
             </div>
           </section>
         </AnimateOnScroll>

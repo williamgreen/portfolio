@@ -100,25 +100,3 @@
     font-family: "Inter", system-ui, -apple-system, sans-serif;
   }
 }
-
-/* On-load fade: blur + rise + opacity (after nelson.co) */
-.fade-up {
-  opacity: 0;
-  filter: blur(6px);
-  transform: translateY(12px);
-  transition-property: opacity, filter, transform;
-  transition-duration: 700ms, 700ms, 800ms;
-  transition-timing-function: ease, ease, cubic-bezier(0.22, 1, 0.36, 1);
-}
-.fade-up-visible {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .fade-up {
-    filter: none;
-    transform: none;
-    transition-duration: 200ms;
-  }
-}

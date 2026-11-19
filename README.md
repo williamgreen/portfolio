@@ -1,10 +1,10 @@
 # Will Green - Portfolio Website
 
-A modern, minimalist portfolio website showcasing the work and projects of Will Green, a Designer based in Bristol, UK.
+A modern, minimalist portfolio website showcasing the work and projects of Will Green, a Product Designer based in Bristol, UK.
 
 ## About
 
-This is the personal portfolio and website for Will Green, currently working as a Designer at Ravelin (recently acquired by Worldpay), building fraud prevention software. The site serves as both a professional showcase and a platform to share personal projects and downloadable resources.
+This is the personal portfolio and website for Will Green, currently working as a Product Designer at Ravelin (recently acquired by Worldpay), building fraud prevention software. The site serves as both a professional showcase and a platform to share personal projects and downloadable resources.
 
 ## Features
 
