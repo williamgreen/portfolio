@@ -7,8 +7,8 @@ import ClickSpark from "@/components/click-spark";
 
 export const metadata: Metadata = {
   title: {
-    template: "Will Green - %s",
-    default: "Will Green - Designer",
+    template: "Will Green · %s",
+    default: "Will Green · Designer",
   },
   description:
     "Designer based in Bristol, UK.",

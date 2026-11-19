@@ -25,7 +25,7 @@ export default function ContactPage() {
   const recaptchaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "Will Green - Contact";
+    document.title = "Will Green · Contact";
 
     // Render reCAPTCHA after component mounts
     const renderRecaptcha = () => {
