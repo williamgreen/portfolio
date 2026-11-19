@@ -13,7 +13,6 @@ import BottomNavigation from "@/components/bottom-navigation";
 import Footer from "@/components/footer";
 import AnimateOnScroll from "@/components/animate-on-scroll";
 import WorkCard from "@/components/work-card";
-import ContributionGraph from "@/components/contribution-graph";
 import { getWorkItems } from "@/lib/work";
 
 export default async function HomePage() {
@@ -145,11 +144,6 @@ export default async function HomePage() {
               </Link>
             </div>
           </section>
-        </AnimateOnScroll>
-
-        {/* Contribution Graph */}
-        <AnimateOnScroll loadOnMount={true}>
-          <ContributionGraph />
         </AnimateOnScroll>
 
         {/* Work Section */}
