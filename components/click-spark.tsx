@@ -83,6 +83,14 @@ export default function ClickSpark({
     frame = requestAnimationFrame(draw);
 
     const onClick = (e: MouseEvent) => {
+      // No sparks on interactive elements or the nav
+      const target = e.target as Element | null;
+      if (
+        target?.closest(
+          'a, button, nav, input, textarea, select, label, summary, [role="button"], [role="link"]'
+        )
+      )
+        return;
       const now = performance.now();
       for (let i = 0; i < sparkCount; i++) {
         sparksRef.current.push({
