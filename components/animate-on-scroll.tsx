@@ -6,23 +6,45 @@ interface AnimateOnScrollProps {
   children: React.ReactNode;
   delay?: number;
   duration?: number;
+  riseDuration?: number;
   className?: string;
   loadOnMount?: boolean;
+}
+
+// Matches nelson.co's homepage: everything fades and unblurs together,
+// while each block rises in turn, 80ms after the previous one.
+const STAGGER_MS = 80;
+let mountIndex = 0;
+let resetScheduled = false;
+
+function nextMountIndex() {
+  const index = mountIndex++;
+  if (!resetScheduled) {
+    resetScheduled = true;
+    requestAnimationFrame(() => {
+      mountIndex = 0;
+      resetScheduled = false;
+    });
+  }
+  return index;
 }
 
 export default function AnimateOnScroll({
   children,
   delay = 0,
-  duration = 300,
+  duration = 700,
+  riseDuration = 1400,
   className = "",
   loadOnMount = false,
 }: AnimateOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [riseDelay, setRiseDelay] = useState(0);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (loadOnMount) {
-      // Load immediately on mount - all elements at the same time
+      // Load on mount, with each element's rise staggered by mount order
+      setRiseDelay(nextMountIndex() * STAGGER_MS);
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 50); // Small delay to ensure smooth animation
@@ -57,13 +79,17 @@ export default function AnimateOnScroll({
   return (
     <div
       ref={elementRef}
-      className={`[overflow-anchor:none] transition-all ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      className={`[overflow-anchor:none] ${
+        isVisible
+          ? "opacity-100 translate-y-0 blur-0"
+          : "opacity-0 translate-y-4 blur-[8px]"
       } ${className}`}
       style={{
-        transitionDuration: `${duration}ms`,
-        transitionDelay: "0ms",
-        willChange: "opacity, transform",
+        transitionProperty: "opacity, filter, transform",
+        transitionDuration: `${duration}ms, ${duration}ms, ${riseDuration}ms`,
+        transitionTimingFunction: "ease-out, ease-out, cubic-bezier(0.25, 1, 0.5, 1)",
+        transitionDelay: `0ms, 0ms, ${riseDelay}ms`,
+        willChange: "opacity, transform, filter",
       }}
     >
       {children}

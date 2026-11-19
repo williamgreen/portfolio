@@ -3,14 +3,15 @@ import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import ClickSpark from "@/components/click-spark";
 
 export const metadata: Metadata = {
   title: {
-    template: "Will Green - %s",
-    default: "Will Green - Product Designer",
+    template: "Will Green · %s",
+    default: "Will Green · Designer",
   },
   description:
-    "Product designer based in Bristol, UK.",
+    "Designer based in Bristol, UK.",
   generator: "Next.js",
   icons: {
     icon: "/favicon.ico",
@@ -63,6 +64,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ClickSpark />
         </ThemeProvider>
         <Analytics />
       </body>

@@ -25,7 +25,7 @@ export default function ContactPage() {
   const recaptchaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "Will Green - Contact";
+    document.title = "Will Green · Contact";
 
     // Render reCAPTCHA after component mounts
     const renderRecaptcha = () => {
@@ -111,7 +111,7 @@ export default function ContactPage() {
             >
               <Button variant="outline">
                 <Calendar className="w-4 h-4 mr-2" />
-                Book a call
+                Schedule a call
                 <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
               </Button>
             </Link>

@@ -35,7 +35,7 @@ export default async function HomePage() {
             </div>
             <div>
               <h1 className="font-semibold text-foreground">Will Green</h1>
-              <p className="text-muted-foreground text-sm">Product Designer</p>
+              <p className="text-muted-foreground text-sm">Designer</p>
             </div>
           </div>
         </AnimateOnScroll>
@@ -51,7 +51,7 @@ export default async function HomePage() {
                   href="https://www.ravelin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
                 >
                   Ravelin
                 </Link>, making software to help companies detect and prevent fraud.
@@ -60,7 +60,7 @@ export default async function HomePage() {
                   href="https://mostlywork.ing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
                 >
                   mostlywork.ing
                 </Link>{" "}
@@ -69,14 +69,14 @@ export default async function HomePage() {
                   href="https://instagram.com/willgmoves"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
                 >
                   personal trainer
                 </Link>.
               </p>
               <p>
                 I am occasionally available for freelance work, so feel free to
-                get in touch below or schedule a call.
+                get in touch.
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default async function HomePage() {
             >
               <Button variant="outline">
                 <Calendar className="w-4 h-4 mr-2" />
-                Book a call
+                Schedule a call
                 <ArrowUpRight className="w-4 h-4 -ml-1 align-middle" />
               </Button>
             </Link>
@@ -116,31 +116,23 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
+                linkedin <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
-                href="https://instagram.com/willgpd"
+                href="https://instagram.com/willtg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                Instagram <ArrowUpRight className="w-4 h-4 inline" />
+                instagram <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
-                href="https://dribbble.com/willgreen"
+                href="https://x.com/willtgr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                Dribbble <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://bsky.app/profile/willgreen.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                Bluesky <ArrowUpRight className="w-4 h-4 inline" />
+                x.com <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://github.com/williamgreen"
@@ -148,15 +140,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                GitHub <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://www.youtube.com/channel/UCzduj27Ag0yKe6OZxqse2Ng"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
-              >
-                YouTube <ArrowUpRight className="w-4 h-4 inline" />
+                github <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
             </div>
           </section>
