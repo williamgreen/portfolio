@@ -76,7 +76,7 @@ export default async function HomePage() {
               </p>
               <p>
                 I am occasionally available for freelance work, so feel free to
-                get in touch below.
+                get in touch.
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
+                linkedin <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://instagram.com/willtg"
@@ -124,7 +124,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                Instagram <ArrowUpRight className="w-4 h-4 inline" />
+                instagram <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://x.com/willtgr"
@@ -140,7 +140,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                GitHub <ArrowUpRight className="w-4 h-4 inline" />
+                github <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
             </div>
           </section>
