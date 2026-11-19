@@ -4,13 +4,14 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { tick } from "@/lib/feedback";
 import type { ContributionDay } from "@/lib/contributions";
 
+// Tailwind v4 palette values (green-300…800, neutral-200/800), as on ch.sh.
 function levelClass(count: number, max: number) {
-  if (count === 0) return "bg-neutral-200 dark:bg-neutral-800";
+  if (count === 0) return "bg-[#e5e5e5] dark:bg-[#262626]";
   const ratio = count / max;
-  if (ratio <= 0.25) return "bg-green-300 dark:bg-green-900";
-  if (ratio <= 0.5) return "bg-green-500 dark:bg-green-700";
-  if (ratio <= 0.75) return "bg-green-600 dark:bg-green-500";
-  return "bg-green-800 dark:bg-green-400";
+  if (ratio <= 0.25) return "bg-[#7bf1a8] dark:bg-[#0d542b]";
+  if (ratio <= 0.5) return "bg-[#00c758] dark:bg-[#008138]";
+  if (ratio <= 0.75) return "bg-[#00a544] dark:bg-[#00c758]";
+  return "bg-[#016630] dark:bg-[#05df72]";
 }
 
 export default function CommitGraph({ days }: { days: ContributionDay[] }) {
@@ -107,7 +108,7 @@ export default function CommitGraph({ days }: { days: ContributionDay[] }) {
                   : "opacity 100ms ease, transform 100ms ease",
               }}
             >
-              <div className="bg-neutral-900 text-white text-xs rounded-md px-2.5 py-1.5 whitespace-nowrap shadow-lg">
+              <div className="bg-[#171717] text-white text-xs rounded-md px-2.5 py-1.5 whitespace-nowrap shadow-lg">
                 <p>
                   {new Date(day.date + "T12:00:00").toLocaleDateString("en-US", {
                     month: "short",
@@ -115,11 +116,11 @@ export default function CommitGraph({ days }: { days: ContributionDay[] }) {
                   })}
                 </p>
                 {day.count > 0 ? (
-                  <p className="text-neutral-300">
+                  <p className="text-[#d4d4d4]">
                     {day.count} contribution{day.count !== 1 ? "s" : ""}
                   </p>
                 ) : (
-                  <p className="text-neutral-400">No contributions</p>
+                  <p className="text-[#a1a1a1]">No contributions</p>
                 )}
               </div>
             </div>

@@ -52,7 +52,7 @@ export default async function HomePage() {
                   href="https://www.ravelin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
                 >
                   Ravelin
                 </Link>, making software to help companies detect and prevent fraud.
@@ -61,7 +61,7 @@ export default async function HomePage() {
                   href="https://mostlywork.ing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
                 >
                   mostlywork.ing
                 </Link>{" "}
@@ -70,7 +70,7 @@ export default async function HomePage() {
                   href="https://instagram.com/willgmoves"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
                 >
                   personal trainer
                 </Link>.
@@ -115,33 +115,33 @@ export default async function HomePage() {
                 href="https://www.linkedin.com/in/williamanthonygreen/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                LinkedIn
+                LinkedIn <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://instagram.com/willgpd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                Instagram
+                Instagram <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://x.com/willtgr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                X
+                X <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
               <Link
                 href="https://github.com/williamgreen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-800 dark:text-neutral-200 font-medium underline decoration-dotted decoration-neutral-300 dark:decoration-neutral-600 underline-offset-[3px] hover:text-neutral-500 dark:hover:text-neutral-400 transition-colors duration-100"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1"
               >
-                GitHub
+                GitHub <ArrowUpRight className="w-4 h-4 inline" />
               </Link>
             </div>
           </section>
